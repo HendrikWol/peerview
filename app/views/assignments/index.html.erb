@@ -1,0 +1,9 @@
+<h1>Assignments#index</h1>
+
+<% @assignments.each do |assignment| %>
+<ul>
+  <%= assignment.name %>
+  <%= assignment.description %>
+  <%= assignment.deadline %>
+</ul>
+<% end %>
