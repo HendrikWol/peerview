@@ -10,10 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918134829) do
+ActiveRecord::Schema.define(version: 20170918144251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.string "name"
+    t.date "deadline"
+    t.text "description"
+    t.integer "status"
+    t.bigint "evaluation_id"
+    t.bigint "classroom_id"
+    t.bigint "teacher_id"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_assignments_on_classroom_id"
+    t.index ["evaluation_id"], name: "index_assignments_on_evaluation_id"
+    t.index ["teacher_id"], name: "index_assignments_on_teacher_id"
+    t.index ["topic_id"], name: "index_assignments_on_topic_id"
+  end
+
+  create_table "classrooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.integer "readability"
+    t.integer "referencing"
+    t.integer "knowledge_of_topic"
+    t.integer "final_grade"
+    t.text "feeback_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "assignment_id"
+    t.index ["assignment_id"], name: "index_evaluations_on_assignment_id"
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "city"
+    t.date "date_of_birth"
+    t.text "description"
+    t.bigint "classroom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_students_on_classroom_id"
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "courses"
+    t.string "city"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.bigint "program_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_topics_on_program_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +103,11 @@ ActiveRecord::Schema.define(version: 20170918134829) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assignments", "classrooms"
+  add_foreign_key "assignments", "evaluations"
+  add_foreign_key "assignments", "teachers"
+  add_foreign_key "assignments", "topics"
+  add_foreign_key "evaluations", "assignments"
+  add_foreign_key "students", "classrooms"
+  add_foreign_key "topics", "programs"
 end
