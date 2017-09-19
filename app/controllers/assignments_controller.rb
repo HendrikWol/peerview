@@ -1,5 +1,5 @@
 class AssignmentsController < ApplicationController
-  # before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+  before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
   def index
     @assignments = Assignment.all
@@ -15,7 +15,7 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = Assignment.new(assignment_params)
-    @assignment.teacher = current_user
+    @assignment.teacher_id = current_user
     if @assignment.save
       redirect_to assignments_path
     else
@@ -43,6 +43,6 @@ class AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :topic_id, :teacher_id)
+    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :topic_id, :teacher_id, :specs)
   end
 end

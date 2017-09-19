@@ -1,2 +1,18 @@
-<h1>Assignments#new</h1>
-<p>Find me in app/views/assignments/new.html.erb</p>
+
+<div class="container">
+<h1>Create new assignment</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-4-offset-3">
+      <%= simple_form_for(@assignment) do |f| %>
+      <%= f.input :topic_id, collection: [@topics] %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :specs  %>
+      <%= f.input :deadline  %>
+
+      <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
