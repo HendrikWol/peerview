@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <h1>Teachers</h1>
+    <div class="col-xs-12 col-md-4-offset-3">
+      <% @teachers.each do |teacher| %>
+      <h6>Name: <%= teacher.first_name %> <%= teacher.last_name %></h6>
+      <h6>Email: <%= teacher.email %></h6>
+      <h6>City: <%= teacher.city %></h6>
+      <h6>Courses: <%= teacher.courses %></h6>
+      <h6>Description: <%= teacher.description %></h6>
+      <hr>
+      <% end %>
+    </div>
+  </div>
+</div>

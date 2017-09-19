@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :teachers, path: 'teachers'
+
+  devise_for :teachers, path: 'teachers', controllers: { registrations: "teachers/registrations" }
   devise_for :students
   devise_for :users
   root to: 'pages#home'
