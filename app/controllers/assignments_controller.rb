@@ -16,7 +16,7 @@ class AssignmentsController < ApplicationController
   end
 
   def my_assignments
-    @my_assignments = Assignment.all.where(@assignment.deadline > Date.today)
+    @assignments = Assignment.where(deadline: == Date.today)
   end
 
   def create
