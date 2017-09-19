@@ -3,6 +3,8 @@ class AssignmentsController < ApplicationController
 
   def index
     @assignments = Assignment.all
+    # @assignments = Assignment.all.where(@assignment.deadline < Date.today)
+
   end
 
   def show
@@ -13,9 +15,13 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new
   end
 
+  def my_assignments
+    @my_assignments = Assignment.all.where(@assignment.deadline > Date.today)
+  end
+
   def create
     @assignment = Assignment.new(assignment_params)
-    @assignment.teacher_id = current_user
+    # @assignment.student_id = current_student
     if @assignment.save
       redirect_to assignments_path
     else
@@ -43,6 +49,6 @@ class AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :topic_id, :teacher_id, :specs)
+    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :teacher_id, :specs)
   end
 end

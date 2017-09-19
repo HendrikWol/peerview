@@ -4,11 +4,12 @@
   <div class="row">
     <div class="col-xs-12 col-md-4-offset-3">
       <%= simple_form_for(@assignment) do |f| %>
-      <%= f.input :topic_id, collection: [@topics] %>
+      <%= f.input :topic_id, collection: ["History: WW2", "Entrepreneurship: 101"]  %>
       <%= f.input :name %>
       <%= f.input :description %>
       <%= f.input :specs  %>
       <%= f.input :deadline  %>
+      <%= f.input :classroom_id, collection: Classroom.all %>
 
       <%= f.button :submit %>
       <% end %>
