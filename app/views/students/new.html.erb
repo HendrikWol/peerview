@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4-offset-3">
+      <%= simple_form_for(@student) do |f| %>
+      <%= f.input :email %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name  %>
+      <%= f.input :description %>
+      <%= f.input :date_of_birth, as: :date %>
+      <%= f.input :city %>
+      <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
