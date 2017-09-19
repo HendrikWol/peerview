@@ -20,8 +20,10 @@ class AssignmentsController < ApplicationController
   # end
 
   def create
+    # raise
     @assignment = Assignment.new(assignment_params)
     # @assignment.student_id = current_student
+
     if @assignment.save
       redirect_to assignments_path
     else
@@ -49,6 +51,6 @@ class AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :teacher_id, :specs)
+    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :teacher_id, :specs, :topic_id)
   end
 end

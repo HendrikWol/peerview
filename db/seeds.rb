@@ -27,3 +27,11 @@ new_teacher2 = Teacher.new(first_name: "Youssef", last_name: "Paul", email: "you
 new_teacher2.save
 new_teacher3 = Teacher.new(first_name: "Juliette", last_name: "Engel", email: "juliette@hotmail.com", password: "juliette@hotmail.com", description: "Teaching physics in Amsterdam University", city: "Amsterdam")
 new_teacher3.save
+
+new_program1 = Program.create(name: "Entrepreneurship Master")
+new_program2 = Program.create(name: "Management Master")
+new_program3 = Program.create(name: "Finance Master")
+
+new_topic1 = Topic.create(name: "Entrepreneurship ", program_id: new_program1.id, teacher_id: new_teacher1.id)
+new_topic2 = Topic.create(name: "Management & Business", program_id: new_program2.id, teacher_id: new_teacher1.id)
+new_topic3 = Topic.create(name: "Finance & Economics", program_id: new_program3.id, teacher_id: new_teacher1.id)
