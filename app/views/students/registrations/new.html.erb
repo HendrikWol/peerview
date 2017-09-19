@@ -7,11 +7,18 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.input :first_name %>
+      <%= f.input :last_name  %>
+      <%= f.input :description %>
+      <%= f.input :date_of_birth, as: :date %>
+      <%= f.input :city %>
+      <%= f.input :classroom_id, collection: Classroom.all %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
+
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<h1>STUDENTS</h1>
+<%= render "students/shared/links" %>
