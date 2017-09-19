@@ -1,0 +1,12 @@
+<h1>Student profile:</h1>
+
+<% @students.each do |student| %>
+<ul>
+  <%= student.first_name %>
+  <%= student.last_name %>
+  <%= student.description %>
+  <%= student.city %>
+  <%= student.date_of_birth %>
+
+</ul>
+<% end %>

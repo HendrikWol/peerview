@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Student profiles:</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-4-offset-3">
+      <% @students.each do |student| %>
+      <ul>
+        <%= student.first_name %>
+        <%= student.last_name %>
+        <%= student.description %>
+        <%= student.city %>
+        <%= student.date_of_birth %>
+        <%= student.classroom.name %>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
