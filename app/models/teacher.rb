@@ -1,4 +1,4 @@
-class Teacher < User
+class Teacher < ApplicationRecord
   has_many :assignments
 
   validates :first_name, presence: true
