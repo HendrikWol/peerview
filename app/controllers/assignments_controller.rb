@@ -15,9 +15,9 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new
   end
 
-  def my_assignments
-    @assignments = Assignment.where(deadline: == Date.today)
-  end
+  # def my_assignments
+  #   @assignments = Assignment.where(deadline: == Date.today)
+  # end
 
   def create
     @assignment = Assignment.new(assignment_params)
