@@ -6,6 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+<!-- THIS IS FOR WHEN STUDENTS ARE LOGGED IN -->
 
     <% if student_signed_in? %>
 
@@ -37,6 +38,9 @@
           </ul>
         </div>
       </div>
+
+      <!-- THIS IS FOR WHEN TEACHERS ARE LOGGED IN -->
+
       <% elsif teacher_signed_in? %>
 
       <!-- Links when logged in -->
