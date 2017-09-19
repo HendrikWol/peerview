@@ -1,2 +1,3 @@
 class ClassroomsController < ApplicationController
+
 end

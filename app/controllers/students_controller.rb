@@ -19,7 +19,6 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def create
     @student = Student.new(student_params)
-    # @student.classroom_id = current_user
     if @student.save!
       redirect_to students_path
     else
@@ -32,7 +31,7 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def update
     if @student.update(student_params)
-      redirect_to show_student_path, notice: 'Student profile was successfully updated.'
+      redirect_to student_path, notice: 'Student profile was successfully updated.'
     else
       render :edit
     end
