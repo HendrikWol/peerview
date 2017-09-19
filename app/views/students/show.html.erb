@@ -1,0 +1,65 @@
+
+<div class="container">
+  <div class="row">
+
+    <h2><strong>Student Dashboard:</strong></h2>
+
+    <h4>
+      <%= @student.first_name %> <%= @student.last_name %> </h4>
+      <h5>About me: <%= @student.description %></h5>
+
+      <h5>I'm from: <%= @student.city %></h5>
+
+      <h5>Date of birth: <%= @student.date_of_birth %></h5>
+
+      <h5>Current study year: <%= @student.classroom.name %></h5>
+      <br>
+
+      <h4><strong>My upcoming assignments:</strong></h4>
+
+      <% @student.classroom.assignments.each do |assignment| %>
+        <h5>Assignment name: <%= assignment.name %></h5>
+        <h5>Description: <%= assignment.description %></h5>
+        <h5>Specifications: <%= assignment.specs %></h5>
+        <h5>Deadline: <%= assignment.deadline %></h5>
+
+         <h6><%= link_to 'Show details', assignment_path(assignment),  class: "btn btn-success" %></h6>
+         <br>
+      <% end %>
+
+      <br>
+
+      <h4><strong>My past assignments:</strong></h4>
+
+      <% @student.classroom.assignments.each do |assignment| %>
+        <h5>Assignment name: <%= assignment.name %></h5>
+        <h5>Description: <%= assignment.description %></h5>
+        <h5>Specifications: <%= assignment.specs %></h5>
+        <h5>Deadline: <%= assignment.deadline %></h5>
+
+         <h6><%= link_to 'Show details', assignment_path(assignment),  class: "btn btn-success" %></h6>
+         <br>
+      <% end %>
+
+      <br>
+      <br>
+
+      <h4><strong>Still To Do:</strong></h4>
+
+      <ul>
+
+        <li>Overall graphs of performance (with clickable filters on performance)</li>
+        <li>Cards showing previous assignments with grades (clickable for detail)</li>
+
+      </ul>
+
+      <h5>In navbar left</h5>
+      <ul>
+        <li>My Current/Upcoming assignments</li>
+        <li>Link to your classroom with all students</li>
+      </ul>
+
+    </div>
+  </div>
+
+
