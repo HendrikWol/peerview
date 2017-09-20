@@ -13,6 +13,7 @@
       <h5>Date of birth: <%= @student.date_of_birth %></h5>
 
       <h5>Current study year: <%= @student.classroom.name %></h5>
+      <%= link_to 'Update profile', edit_student_path, class: 'btn btn-success' %>
       <br>
 
       <h4><strong>My upcoming assignments:</strong></h4>

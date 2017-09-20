@@ -36,7 +36,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -54,6 +54,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     resource
   end
+
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
