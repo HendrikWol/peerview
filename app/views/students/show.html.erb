@@ -40,7 +40,7 @@
       <div class="card card-inverse card-primary mb-3 text-left">
         <div class="card-block">
           <blockquote class="card-blockquote">
-            <h4><strong>Upcoming assignmentscs</strong></h4>
+            <h4><strong>Upcoming assignment</strong></h4>
             <% @student.classroom.assignments.each do |assignment| %>
             <% if assignment.deadline > Date.today %>
             <h5>Assignment name: <%= assignment.name %></h5>
@@ -60,7 +60,7 @@
           <blockquote class="card-blockquote">
             <h4><strong>Previous assignments</strong></h4>
             <% @student.classroom.assignments.each do |assignment| %>
-            <% if assignment.deadline > Date.today %>
+            <% if assignment.deadline < Date.today %>
             <h5>Assignment name: <%= assignment.name %></h5>
             <h5>Description: <%= assignment.description %></h5>
             <h5>Specifications: <%= assignment.specs %></h5>
