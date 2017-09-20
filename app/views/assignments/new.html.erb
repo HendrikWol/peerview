@@ -2,8 +2,8 @@
 <div class="container">
 <h1>Create new assignment</h1>
   <div class="row" style="margin-right: 200px;">
-      <%= simple_form_for(@assignment) do |f| %>
-      <%= f.association :teacher, label: 'Topic' , :collection => Topic.order(:name), :prompt => 'Choose a topic'  %>
+      <%= simple_form_for([@teacher, @assignment]) do |f| %>
+      <%= f.input :topic_id, label: 'Topic' , :collection => Topic.order(:name), :prompt => 'Choose a topic'  %>
       <%= f.input :name %>
       <%= f.input :description %>
       <%= f.input :specs  %>

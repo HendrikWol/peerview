@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919155957) do
+ActiveRecord::Schema.define(version: 20170920112615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20170919155957) do
     t.string "name"
     t.date "deadline"
     t.text "description"
-    t.integer "status"
     t.bigint "evaluation_id"
     t.bigint "classroom_id"
     t.bigint "teacher_id"
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170919155957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "specs"
+    t.integer "status", default: 0
     t.index ["classroom_id"], name: "index_assignments_on_classroom_id"
     t.index ["evaluation_id"], name: "index_assignments_on_evaluation_id"
     t.index ["teacher_id"], name: "index_assignments_on_teacher_id"
