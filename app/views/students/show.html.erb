@@ -15,30 +15,52 @@
       <h5>Current study year: <%= @student.classroom.name %></h5>
       <br>
 
-      <h4><strong>My upcoming assignments:</strong></h4>
+      <h4 style="color:red;"><strong>Assignments due for today:</strong></h4>
 
       <% @student.classroom.assignments.each do |assignment| %>
+      <% if assignment.deadline == Date.today %>
         <h5>Assignment name: <%= assignment.name %></h5>
         <h5>Description: <%= assignment.description %></h5>
         <h5>Specifications: <%= assignment.specs %></h5>
         <h5>Deadline: <%= assignment.deadline %></h5>
 
-         <h6><%= link_to 'Show details', assignment_path(assignment),  class: "btn btn-success" %></h6>
+         <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
          <br>
+
+         <% end %>
       <% end %>
 
-      <br>
+
+
+      <h4><strong>My upcoming assignments:</strong></h4>
+
+      <% @student.classroom.assignments.each do |assignment| %>
+      <% if assignment.deadline > Date.today %>
+        <h5>Assignment name: <%= assignment.name %></h5>
+        <h5>Description: <%= assignment.description %></h5>
+        <h5>Specifications: <%= assignment.specs %></h5>
+        <h5>Deadline: <%= assignment.deadline %></h5>
+
+         <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
+         <br>
+
+         <% end %>
+      <% end %>
+
+
 
       <h4><strong>My past assignments:</strong></h4>
 
       <% @student.classroom.assignments.each do |assignment| %>
+      <% if assignment.deadline < Date.today %>
         <h5>Assignment name: <%= assignment.name %></h5>
         <h5>Description: <%= assignment.description %></h5>
         <h5>Specifications: <%= assignment.specs %></h5>
         <h5>Deadline: <%= assignment.deadline %></h5>
 
-         <h6><%= link_to 'Show details', assignment_path(assignment),  class: "btn btn-success" %></h6>
+         <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
          <br>
+         <% end %>
       <% end %>
 
       <br>
@@ -50,14 +72,8 @@
 
         <li>Overall graphs of performance (with clickable filters on performance)</li>
         <li>Cards showing previous assignments with grades (clickable for detail)</li>
-
       </ul>
 
-      <h5>In navbar left</h5>
-      <ul>
-        <li>My Current/Upcoming assignments</li>
-        <li>Link to your classroom with all students</li>
-      </ul>
 
     </div>
   </div>
