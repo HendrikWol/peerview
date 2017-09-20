@@ -1,2 +1,8 @@
 <h1>Classroom Overview:</h1>
+<h4>(<%= @classroom.name %>)</h4>
+  <h4><strong>Students enrolled:</strong></h4>
+  <br>
+<% @classroom.students.each do |student| %>
+  <p>Name: <%= student.first_name %> <%= student.last_name %></p>
+<% end %>
 

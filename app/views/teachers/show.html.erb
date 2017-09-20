@@ -13,14 +13,14 @@
        <% classroom_array = [] %>
        <% @teacher.topics.each do |topic| %>
        <% topic.assignments.each do |assignment| %>
-       <% classroom_array << assignment.classroom.name %>
+       <% classroom_array << {id:assignment.classroom.id, name: assignment.classroom.name } %>
 
        <% end %>
       <% end %>
 
       <% classroom_array.uniq.each do |p| %>
       <ul>
-        <li><%= p %>  <%= link_to 'Show students', classroom_path(p),  class: "btn btn-success" %></li>
+        <li><%= p[:name] %>  <%= link_to 'Show students', classroom_path(p[:id]),  class: "btn btn-success" %></li>
       </ul>
       <% end %>
 
@@ -30,7 +30,6 @@
          <li><%= topic.name%></li>
        </ul>
        <% end %>
-
 
   </div>
 </div>
