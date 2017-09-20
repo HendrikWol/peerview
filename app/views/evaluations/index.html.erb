@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h2>Evaluations Dashboard</h2>
+
+    <h4>You have to evaluate: </h4>
+    <% offset1 = rand(Assignment.count) %>
+    <p><%= Assignment.offset(offset1).first.name %> <%= link_to 'Evaluate',  class: "btn btn-success" %></p>
+    <% offset2 = rand(Assignment.count) %>
+    <p><%= Assignment.offset(offset2).first.name %></p>
+    <% offset3 = rand(Assignment.count) %>
+    <p><%= Assignment.offset(offset3).first.name %></p>
+
+    <br>
+    <br>
+
+    <h4>Evaluated assignments: </h4>
+
+  </div>
+</div>

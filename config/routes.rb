@@ -7,14 +7,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :classrooms
-  resources :evaluations
   resources :programs
-  resources :students
+  resources :topics
+
+  resources :students do
+    resources :evaluations
+  end
+
   resources :teachers do
     resources :assignments
   end
-
-  resources :topics
 
   get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
 end

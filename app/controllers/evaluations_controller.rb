@@ -14,9 +14,10 @@ class EvaluationsController < ApplicationController
 
   def create
     @evaluation = Evaluation.new(evaluation_params)
-    @evaluation.teacher = current_user
+    @evalutiion.student = current_student
+
     if @evaluation.save
-      redirect_to evaluations_path
+      redirect_to student_evaluations_path
     else
       render :new
     end
@@ -27,15 +28,19 @@ class EvaluationsController < ApplicationController
 
   def update
     @evaluation.update(params[:evaluation])
-    redirect_to evaluation_path(@evaluation)
+    redirect_to student_evaluation_path(@evaluation)
   end
 
   def destroy
     @evaluation.destroy
-    redirect_to evaluations_path
+    redirect_to student_evaluations_path
   end
 
   private
+
+  def set_assignment
+    @assignment = Assignment.find(params[:assignment_id])
+  end
 
   def set_evaluation
     @evaluation = Evaluation.find(params[:id])
