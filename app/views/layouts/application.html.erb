@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-  </head>
-  <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/vnavbar' %>
-    <%= render 'shared/flashes' %>
-    <div style="margin-left:15%;padding:1px 16px;height:1000px;">
-    <%= yield %>
-    <%= render "shared/footer" %>
-    </div>
-    <%= javascript_include_tag 'application' %>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>PeerView</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+
+</head>
+<body>
+  <%= render 'shared/navbar' %>
+  <%= render 'shared/vnavbar' %>
+  <%= render 'shared/flashes' %>
+  <%= yield %>
+  <%= render "shared/footer" %>
+  <%= javascript_include_tag 'application' %>
+</body>
 </html>

@@ -1,93 +1,93 @@
 
 <div class="container">
   <div class="row">
-
-    <h2><strong>Student Dashboard:</strong></h2>
-
-    <h4>
-      <%= @student.first_name %> <%= @student.last_name %> </h4>
-      <h5>About me: <%= @student.description %></h5>
-      <h5>I'm from: <%= @student.city %></h5>
-      <h5>Date of birth: <%= @student.date_of_birth %></h5>
-      <h5>Current study year: <%= @student.classroom.name %></h5>
-      <%= link_to 'Update profile', edit_student_path, class: 'btn btn-success' %>
+    <div class="text-left">
       <br>
-
-      <h4 style="color: red;"><strong>Assignments due for today:</strong></h4>
-
-      <% @student.classroom.assignments.each do |assignment| %>
-      <% if assignment.deadline == Date.today %>
-        <h5>Teacher name: <%= assignment.teacher.first_name %>
-          <%= assignment.teacher.last_name %></h5>
-        <h5>Topic: <%= assignment.topic.name %></h5>
-        <h5>Assignment name: <%= assignment.name %></h5>
-        <h5>Description: <%= assignment.description %></h5>
-        <h5>Specifications: <%= assignment.specs %></h5>
-        <h5>Deadline: <%= assignment.deadline %></h5>
-        <h5>Status: <%= assignment.status %></h5>
-
-         <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
-         <br>
-
-
-         <% end %>
-      <% end %>
-
-
-
-      <h4><strong>My upcoming assignments:</strong></h4>
-
-      <% @student.classroom.assignments.each do |assignment| %>
-      <% if assignment.deadline > Date.today %>
-        <h5>Teacher name: <%= assignment.teacher.first_name %>
-          <%= assignment.teacher.last_name %></h5>
-        <h5>Topic: <%= assignment.topic.name %></h5>
-        <h5>Assignment name: <%= assignment.name %></h5>
-        <h5>Description: <%= assignment.description %></h5>
-        <h5>Specifications: <%= assignment.specs %></h5>
-        <h5>Deadline: <%= assignment.deadline %></h5>
-        <h5>Status: <%= assignment.status %></h5>
-
-         <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
-         <br>
-
-         <% end %>
-      <% end %>
-
-
-
-      <h4><strong>My past assignments:</strong></h4>
-
-      <% @student.classroom.assignments.each do |assignment| %>
-      <% if assignment.deadline < Date.today %>
-        <h5>Teacher name: <%= assignment.teacher.first_name %>
-          <%= assignment.teacher.last_name %>
-        </h5>
-        <h5>Topic: <%= assignment.topic.name %></h5>
-        <h5>Assignment name: <%= assignment.name %></h5>
-        <h5>Description: <%= assignment.description %></h5>
-        <h5>Specifications: <%= assignment.specs %></h5>
-        <h5>Deadline: <%= assignment.deadline %></h5>
-        <h5>Status: <%= assignment.status %></h5>
-
-         <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
-         <br>
-         <% end %>
-      <% end %>
-
-      <br>
-      <br>
-
-      <h4><strong>Still To Do:</strong></h4>
-
-      <ul>
-
-        <li>Overall graphs of performance (with clickable filters on performance)</li>
-        <li>Cards showing previous assignments with grades (clickable for detail)</li>
-      </ul>
-
-
+      <h2><strong>Welcome To Your Dashboard, <%= @student.first_name %>!</strong></h2>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <div class="profile-card text-center">
+        <%= @student.first_name %> <%= @student.last_name %></h4></strong></h4>
+        <br>
+        <div class="banner-image">
+          <%= image_tag "http://kitt.lewagon.com/placeholder/users/deepblue1986", class:"banner-image avatar"%>
+          <h5 ><%= @student.description %></h5>
+          <h5><%= @student.classroom.name %></h5>
+          <h5 class="weak"><%= @student.city %></h5>
+          <h5 class="weak"><%= @student.date_of_birth %></h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <div class="card card-inverse card-primary mb-3 text-left">
+        <div class="card-block">
+          <blockquote class="card-blockquote">
+            <h4><strong>Todays assignments</strong></h4>
+            <% @student.classroom.assignments.each do |assignment| %>
+            <% if assignment.deadline == Date.today %>
+            <h5>Assignment name: <%= assignment.name %></h5>
+            <h5>Description: <%= assignment.description %></h5>
+            <h5>Specifications: <%= assignment.specs %></h5>
+            <h5>Deadline: <%= assignment.deadline %></h5>
+            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
+            <% end %>
+            <% end %>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <div class="card card-inverse card-primary mb-3 text-left">
+        <div class="card-block">
+          <blockquote class="card-blockquote">
+            <h4><strong>Upcoming assignmentscs</strong></h4>
+            <% @student.classroom.assignments.each do |assignment| %>
+            <% if assignment.deadline > Date.today %>
+            <h5>Assignment name: <%= assignment.name %></h5>
+            <h5>Description: <%= assignment.description %></h5>
+            <h5>Specifications: <%= assignment.specs %></h5>
+            <h5>Deadline: <%= assignment.deadline %></h5>
+            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
+            <% end %>
+            <% end %>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <div class="card card-inverse card-primary mb-3 text-left">
+        <div class="card-block">
+          <blockquote class="card-blockquote">
+            <h4><strong>Previous assignments</strong></h4>
+            <% @student.classroom.assignments.each do |assignment| %>
+            <% if assignment.deadline > Date.today %>
+            <h5>Assignment name: <%= assignment.name %></h5>
+            <h5>Description: <%= assignment.description %></h5>
+            <h5>Specifications: <%= assignment.specs %></h5>
+            <h5>Deadline: <%= assignment.deadline %></h5>
+            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
+            <% end %>
+            <% end %>
+          </blockquote>
+        </div>
+      </div>
     </div>
   </div>
-
-
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="card card-inverse card-warning mb-3 text-center">
+        <div class="card-block">
+          <blockquote class="card-blockquote">
+            <h4><strong>Still To Do</strong></h4>
+            <ul>
+              <li>Overall graphs of performance (with clickable filters on performance)</li>
+              <li>Cards showing previous assignments with grades (clickable for detail)</li>
+            </ul>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
