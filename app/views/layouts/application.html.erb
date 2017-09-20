@@ -10,8 +10,12 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
+    <%= render 'shared/vnavbar' %>
     <%= render 'shared/flashes' %>
+    <div style="margin-left:15%;padding:1px 16px;height:1000px;">
     <%= yield %>
+    <%= render "shared/footer" %>
+    </div>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
