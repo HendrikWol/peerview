@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :students
   resources :teachers
   resources :topics
+
+  get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
 end
