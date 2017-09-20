@@ -6,13 +6,48 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+<!-- THIS IS FOR WHEN STUDENTS ARE LOGGED IN -->
 
-    <% if teacher_signed_in? %>
+    <% if student_signed_in? %>
 
       <!-- Links when logged in -->
       <%= link_to "How to", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Profile", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Blog", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Pricing", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <%= image_tag "http://kitt.lewagon.com/placeholder/users/deepblue1986", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_student_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- THIS IS FOR WHEN TEACHERS ARE LOGGED IN -->
+
+      <% elsif teacher_signed_in? %>
+
+      <!-- Links when logged in -->
+      <%= link_to "How to", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Pricing", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Blog", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -49,10 +84,24 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="#">How to</a></li>
-        <li><a href="#">Pricing</a></li>
+
         <li><a href="#">Blog</a></li>
+        <li><a href="#">Pricing</a></li>
+
       </ul>
     </div>
   </div>
 </div>
+
+
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+  $('.child').hide(); //Hide children by default
+$('.parent').children().click(function () {
+  event.preventDefault();
+  $(this).children('.child').slideToggle('slow');
+  $(this).find('span').toggle();
+});
+<% end %>
+<% end %>
 

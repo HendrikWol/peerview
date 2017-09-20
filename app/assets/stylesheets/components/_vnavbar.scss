@@ -1,0 +1,195 @@
+
+.dropdown-submenu {
+  border-bottom: 1px solid #ccc;
+}
+#mn-wrapper {
+  display: table;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+}
+.mn-sidebar {
+  display: table-cell;
+  position: relative;
+  vertical-align: top;
+  padding-bottom: 0px;
+  background: #272930;
+  width: 5%;
+
+}
+#mn-cont {
+  display: table-cell;
+  vertical-align: top;
+  position: relative;
+  padding: 0;
+}
+.container {
+  margin-right: auto;
+}
+.cnt-mcont {
+  background-color: #747474;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 21px;
+  padding: 15px 30px 30px 30px;
+  margin-top: 0;
+  height: 100%;
+}
+.mn-sidebar .mn-toggle {
+  display: none;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+}
+.mn-vnavigation {
+  margin: 0 0 0 0;
+  padding: 0;
+
+}
+.mn-vnavigation li a {
+  border-top: 1px solid #32353e;
+  border-bottom: 1px solid #1a1c20;
+  display: block;
+  padding: 14px 18px 13px 15px;
+  color: #747474;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+.dropdown-submenu >
+.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -1px;
+  background: #272930;
+}
+.dropdown-submenu:hover >
+.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu > a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #ccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover > a:after {
+  border-left-color: #fff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left > .dropdown-menu {
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
+}
+ul {
+  list-style: none;
+}
+ul.dropdown-menu.parent {
+  margin-top: -1px;
+}
+.bottom-mn {
+  bottom:0px;
+  position:absolute;
+  width:100%;
+}
+
+// body {
+//     margin: 0;
+// }
+// .navigation {
+//   width: 30%;
+//   height: 100%;
+
+// }
+
+// /* reset our lists to remove bullet points and padding */
+// .mainmenu, .submenu {
+//   list-style: none;
+//   padding: 0;
+//   margin: 0;
+//   background-color: #71C9CE;
+// }
+
+// /* make ALL links (main and submenu) have padding and background color */
+// .mainmenu a {
+//   display: block;
+//   background-color:#71C9CE;
+//   text-decoration: none;
+//   padding: 10px;
+//   color: #000;
+// }
+
+// /* add hover behaviour */
+// .mainmenu a:hover {
+//     background-color: #A6E3E9;
+// }
+
+
+// /* when hovering over a .mainmenu item,
+//   display the submenu inside it.
+//   we're changing the submenu's max-height from 0 to 200px;
+// */
+
+// .mainmenu li:hover .submenu {
+//   display: block;
+//   max-height: 100%;
+// }
+
+// /*
+//   we now overwrite the background-color for .submenu links only.
+//   CSS reads down the page, so code at the bottom will overwrite the code at the top.
+// */
+
+// .submenu a {
+//   background-color: #CBF1F5 ;
+// }
+
+// /* hover behaviour for links inside .submenu */
+// .submenu a:hover {
+//   background-color: #E3FDFD;
+// }
+
+// /* this is the initial state of all submenus.
+//   we set it to max-height: 0, and hide the overflowed content.
+// */
+// .submenu {
+//   overflow: hidden;
+//   max-height: 0;
+//   -webkit-transition: all 0.5s ease-out;
+// }
+
+
+// ul {
+//     list-style-type: none;
+//     margin: 0;
+//     padding: 0;
+//     width: 15%;
+//     background-color: #71C9CE;
+//     position: fixed;
+//     height: 100%;
+//     overflow: auto;
+// }
+
+// li a {
+//     display: block;
+//     color: #000;
+//     padding: 8px 16px;
+//     text-decoration: none;
+// }
+
