@@ -1,51 +1,51 @@
-<% if teacher_signed_in? %>
+<% if teacher_signed_in? || student_signed_in? %>
+<div style="margin-left:15%;padding:1px 16px;height:1000px;">
+  <div id="mn-wrapper">
+    <div class="mn-sidebar">
+      <div class="mn-toggle"><i class="fa fa-bars"></i></div>
+      <div class="mn-navblock">
+        <ul class="mn-vnavigation">
 
-<div id="mn-wrapper">
-  <div class="mn-sidebar">
-    <div class="mn-toggle"><i class="fa fa-bars"></i></div>
-    <div class="mn-navblock">
-      <ul class="mn-vnavigation">
+          <li class="dropdown-submenu">
+            <a tabindex="-1" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu">
+              <li><a tabindex="-1" href="#">Pre-advice</a></li>
+              <li><a href="#">holaa</i></a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Implementation</a></li>
+              <li><a href="#">Review</a></li>
+              <li><a href="#">Execution Only</a></li>
+            </ul>
+          </li>
 
-        <li class="dropdown-submenu active">
-          <a tabindex="-1" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
-          <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#">Pre-advice</a></li>
-            <li><a href="#">holaa</i></a></li>
-            <li><a href="#">Research</a></li>
-            <li><a href="#">Implementation</a></li>
-            <li><a href="#">Review</a></li>
-            <li><a href="#">Execution Only</a></li>
-          </ul>
-        </li>
+          <li class="dropdown-submenu">
+            <a tabindex="0" href="#"><i class="fa fa-tasks" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu">
+              <li><a tabindex="-1" href="#">Guide</a></li>
+              <li><a href="#">List all this shi</i></a></li>
+              <li><a href="#">Ask</a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#">Review</a></li>
+              <li><a href="#">Execution</a></li>
+            </ul>
+          </li>
 
-            <li class="dropdown-submenu active">
-          <a tabindex="0" href="#"><i class="fa fa-tasks" aria-hidden="true"></i></a>
-          <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#">Guide</a></li>
-            <li><a href="#">List all this shi</i></a></li>
-            <li><a href="#">Ask</a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#">Review</a></li>
-            <li><a href="#">Execution</a></li>
-          </ul>
-        </li>
-
-      <li class="dropdown-submenu active">
-        <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i></a>
-        <ul class="dropdown-menu">
-            <li><a tabindex="1" href="#">Guide</a></li>
-            <li><a href="#">List all this shi</i></a></li>
-            <li><a href="#">Ask</a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#">Review</a></li>
-            <li><a href="#">Execution</a></li>
-          </ul>
-        </li>
-      </ul>
+          <li class="dropdown-submenu">
+            <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu">
+              <li><a tabindex="1" href="#">Guide</a></li>
+              <li><a href="#">List all this shi</i></a></li>
+              <li><a href="#">Ask</a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#">Review</a></li>
+              <li><a href="#">Execution</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
-
-<% end %>
+  </div>
+  <% end %>
 <!-- <!DOCTYPE html>
 <html>
 <body>
