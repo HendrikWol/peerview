@@ -10,6 +10,7 @@
       <h5>I'm from: <%= @student.city %></h5>
       <h5>Date of birth: <%= @student.date_of_birth %></h5>
       <h5>Current study year: <%= @student.classroom.name %></h5>
+      <%= link_to 'Update profile', edit_student_path, class: 'btn btn-success' %>
       <br>
 
       <h4 style="color: red;"><strong>Assignments due for today:</strong></h4>
