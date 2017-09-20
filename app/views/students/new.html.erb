@@ -10,7 +10,7 @@
       <%= f.input :date_of_birth, as: :date %>
       <%= f.input :city %>
       <%= f.input :classroom_id, collection: Classroom.all %>
-      <%= f.button :submit %>
+      <%= f.button :submit, class: 'btn btn-success' %>
       <% end %>
     </div>
   </div>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   devise_for :teachers, path: 'teachers', controllers: { registrations: "teachers/registrations" }
-  devise_for :students
+  devise_for :students, path: 'students', controllers: { registrations: "students/registrations" }
   devise_for :users
   root to: 'pages#home'
 
@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :students
   resources :teachers
   resources :topics
+
+  get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
 end
