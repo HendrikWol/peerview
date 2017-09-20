@@ -52,7 +52,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_up_path_for(resource)
-    resource
+    edit_student_path(resource)
   end
 
 
