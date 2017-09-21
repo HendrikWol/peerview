@@ -10,11 +10,12 @@
         <%= @student.first_name %> <%= @student.last_name %></h4></strong></h4>
         <br>
         <div class="banner-image">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/deepblue1986", class:"banner-image avatar"%>
+          <%= image_tag @student.photo, class:"banner-image avatar"%>
           <h5 ><%= @student.description %></h5>
           <h5><%= @student.classroom.name %></h5>
           <h5 class="weak"><%= @student.city %></h5>
           <h5 class="weak"><%= @student.date_of_birth %></h5>
+          <%= link_to 'Edit profile', edit_student_path %>
         </div>
       </div>
     </div>

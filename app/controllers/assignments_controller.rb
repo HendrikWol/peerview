@@ -8,6 +8,7 @@ class AssignmentsController < ApplicationController
   end
 
   def show
+    @current_student = current_student
 
   end
 
@@ -46,13 +47,13 @@ class AssignmentsController < ApplicationController
 
   private
   def set_teacher
-    @teacher = Teacher.find(params[:teacher_id])
+    @teacher = Teacher.find(params[:id])
   end
   def set_assignment
-    @assignment = Assignment.find(params[:id])
+    @assignment = Assignment.find(params[:teacher_id])
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :teacher_id, :specs, :topic_id)
+    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :teacher_id, :specs, :topic_id, :attachment, :attachment_cache)
   end
 end

@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920112615) do
+
+ActiveRecord::Schema.define(version: 20170921123758) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170920112615) do
     t.datetime "updated_at", null: false
     t.text "specs"
     t.integer "status", default: 0
+    t.string "attachment"
     t.index ["classroom_id"], name: "index_assignments_on_classroom_id"
     t.index ["evaluation_id"], name: "index_assignments_on_evaluation_id"
     t.index ["teacher_id"], name: "index_assignments_on_teacher_id"
@@ -49,6 +52,18 @@ ActiveRecord::Schema.define(version: 20170920112615) do
     t.datetime "updated_at", null: false
     t.bigint "assignment_id"
     t.index ["assignment_id"], name: "index_evaluations_on_assignment_id"
+  end
+
+  create_table "papers", force: :cascade do |t|
+    t.bigint "assignment_id"
+    t.bigint "student_id"
+    t.bigint "evaluation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "attachment"
+    t.index ["assignment_id"], name: "index_papers_on_assignment_id"
+    t.index ["evaluation_id"], name: "index_papers_on_evaluation_id"
+    t.index ["student_id"], name: "index_papers_on_student_id"
   end
 
   create_table "programs", force: :cascade do |t|
@@ -76,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170920112615) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "photo"
     t.index ["classroom_id"], name: "index_students_on_classroom_id"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
@@ -98,6 +114,7 @@ ActiveRecord::Schema.define(version: 20170920112615) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "photo"
     t.index ["email"], name: "index_teachers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
@@ -134,6 +151,9 @@ ActiveRecord::Schema.define(version: 20170920112615) do
   add_foreign_key "assignments", "teachers"
   add_foreign_key "assignments", "topics"
   add_foreign_key "evaluations", "assignments"
+  add_foreign_key "papers", "assignments"
+  add_foreign_key "papers", "evaluations"
+  add_foreign_key "papers", "students"
   add_foreign_key "students", "classrooms"
   add_foreign_key "topics", "programs"
   add_foreign_key "topics", "teachers"

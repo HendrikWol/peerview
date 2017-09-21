@@ -49,7 +49,7 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
   end
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :email, :date_of_birth, :description, :city, :classroom_id)
+    params.require(:student).permit(:first_name, :last_name, :email, :date_of_birth, :description, :city, :classroom_id, :photo, :photo_cache)
   end
 
 end
