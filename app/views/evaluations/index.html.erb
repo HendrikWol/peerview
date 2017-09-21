@@ -3,27 +3,44 @@
     <h2>Evaluations Dashboard</h2>
 
     <h4>You have to evaluate: </h4>
-    <% offset1 = rand(Assignment.count) %>
-    <p><%= Assignment.offset(offset1).first.name %> <%= link_to 'Evaluate',  class: "btn btn-success" %></p>
-    <% offset2 = rand(Assignment.count) %>
-    <p><%= Assignment.offset(offset2).first.name %></p>
-    <% offset3 = rand(Assignment.count) %>
-    <p><%= Assignment.offset(offset3).first.name %></p>
+    <%  student_papers = [] %>
+    <%  @papers.each do |paper|%>
+    <%  student_papers << paper  if paper.student = current_student %>
+    <% end %>
+    <% student_papers.each do |paper| %>
+    <% to_evaluate = @papers.first %>
+
+
+    <% if (to_evaluate.assignment.deadline == paper.assignment.deadline && to_evaluate.assignment.topic == paper.assignment.topic) && (to_evaluate.student.classroom == paper.student.classroom && paper.student != current_student) %>
+
+    <%= to_evaluate.title %>
+
+    <% end %>
+    <% end %>
+
+
+
+
+
+
+
+
+
+    <h4>old code:</h4>
+
+    <% @papers.each do |paper| %>
+    <% if paper.student.classroom == current_student.classroom %>
+    <ul>
+      <li><%= paper %> <%= link_to 'Evaluate', new_evaluation_path, class: 'btn btn-success' %></li>
+    </ul>
+    <% end %>
+    <% end %>
 
     <br>
     <br>
+
 
     <h4>Evaluated assignments: </h4>
 
-    <% @student.evaluations.each do |evaluation| %>
-    <h5><%= @student.evaluation.last_name %>
-    <%= @student.evaluation.last_name %></h5>
-        <h5>Readability: <%= @student.evaluation.readability %></h5>
-        <h5>Referencing: <%= @student.evaluation.referencing %></h5>
-        <h5>Knowledge of topic: <%= @student.evaluation.knowledge_of_topic %></h5>
-        <h5>Feedback: <%= @student.evaluation.feeback_text %></h5>
-        <h5>Final grade: <%= @student.evaluation.final_grade %></h5>
-
-        <% end %>
   </div>
 </div>
