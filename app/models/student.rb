@@ -9,4 +9,6 @@ class Student < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  mount_uploader :photo, PhotoUploader
 end
