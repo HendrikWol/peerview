@@ -9,3 +9,27 @@
       opacity: 1;
     }
 }
+
+.card-inverse {
+  border: solid 0.2px;
+  border-left: solid 6px;
+  padding: 5px;
+  box-shadow: 1px 2px 3px rgba(28, 89, 121, 0.4);
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+ .urgent {
+  border-color: #DD105E;
+  }
+
+ .upcoming {
+  border-color: #46466E;
+  }
+
+.past {
+  border-color: #BDBDD7;
+  }
+.todo {
+  border-color: #E67E22;
+}
