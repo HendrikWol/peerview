@@ -13,7 +13,7 @@
         <h5>Deadline: <%= @assignment.deadline %></h5>
         <h5>Status: <%= @assignment.status %></h5>
   <br>
-  <h6><%= link_to 'Upload Your Assignment',  class: "btn btn-success" %></h6>
+  <h6><%= link_to 'Upload Your Assignment',  new_assignment_paper_path(@assignment),  class: "btn btn-success" %></h6>
 
 
   <%= link_to 'Go back to Dashboard', student_path, class: "btn btn-succes" %>

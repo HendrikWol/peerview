@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :teachers do
     resources :assignments
   end
-
+  resources :assignments, only: [] do
+    resources :papers
+  end
   resources :topics
 
   get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
