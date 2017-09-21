@@ -45,7 +45,7 @@ def set_teacher
 end
 
 def teacher_params
-params.require(:teacher).permit(:first_name, :last_name, :courses, :city, :description, :email)
+params.require(:teacher).permit(:first_name, :last_name, :courses, :city, :description, :email, :photo, :photo_cache)
 end
 
 end
