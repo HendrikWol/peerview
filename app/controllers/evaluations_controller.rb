@@ -1,5 +1,7 @@
 class EvaluationsController < ApplicationController
- before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
+  before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
+  before_action :set_student
+
   def index
     @evaluations = Evaluation.all
   end
@@ -14,10 +16,10 @@ class EvaluationsController < ApplicationController
 
   def create
     @evaluation = Evaluation.new(evaluation_params)
-    @evalutiion.student = current_student
+    @evaluation.student = @student
 
     if @evaluation.save
-      redirect_to student_evaluations_path
+      redirect_to student_evaluation_path(@student)
     else
       render :new
     end
@@ -28,7 +30,7 @@ class EvaluationsController < ApplicationController
 
   def update
     @evaluation.update(params[:evaluation])
-    redirect_to student_evaluation_path(@evaluation)
+    redirect_to student_evaluations_path(@student)
   end
 
   def destroy
@@ -38,8 +40,8 @@ class EvaluationsController < ApplicationController
 
   private
 
-  def set_assignment
-    @assignment = Assignment.find(params[:assignment_id])
+  def set_student
+    @student = Student.find(params[:student_id])
   end
 
   def set_evaluation

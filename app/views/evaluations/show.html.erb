@@ -1,5 +1,17 @@
 <div class="container">
   <div class="row">
     <h2>Evaluate this assignment:</h2>
+    <% @student.evaluations.each do |evaluation| %>
+    <h5><%= @student.evaluation.last_name %>
+    <%= @student.evaluation.last_name %></h5>
+        <h5>Readability: <%= @student.evaluation.readability %></h5>
+        <h5>Referencing: <%= @student.evaluation.referencing %></h5>
+        <h5>Knowledge of topic: <%= @student.evaluation.knowledge_of_topic %></h5>
+        <h5>Feedback: <%= @student.evaluation.feeback_text %></h5>
+        <h5>Final grade: <%= @student.evaluation.final_grade %></h5>
+
+        <% end %>
+
+
   </div>
 </div>
