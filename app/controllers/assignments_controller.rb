@@ -8,6 +8,7 @@ class AssignmentsController < ApplicationController
   end
 
   def show
+    @current_student = current_student
 
   end
 
