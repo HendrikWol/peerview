@@ -19,9 +19,9 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-8">
-      <div class="card card-inverse card-primary mb-3 text-left">
+      <div class="card card-inverse urgent text-left">
         <div class="card-block">
-          <blockquote class="card-blockquote">
+
             <h4><strong>Todays assignments</strong></h4>
             <% @student.classroom.assignments.each do |assignment| %>
             <% if assignment.deadline == Date.today %>
@@ -29,17 +29,17 @@
             <h5>Description: <%= assignment.description %></h5>
             <h5>Specifications: <%= assignment.specs %></h5>
             <h5>Deadline: <%= assignment.deadline %></h5>
-            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
+            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-danger" %></h6>
             <% end %>
             <% end %>
-          </blockquote>
+
         </div>
       </div>
     </div>
     <div class="col-xs-12 col-md-8">
-      <div class="card card-inverse card-primary mb-3 text-left">
+      <div class="card card-inverse upcoming mb-3 text-left">
         <div class="card-block">
-          <blockquote class="card-blockquote">
+
             <h4><strong>Upcoming assignment</strong></h4>
             <% @student.classroom.assignments.each do |assignment| %>
             <% if assignment.deadline > Date.today %>
@@ -47,17 +47,18 @@
             <h5>Description: <%= assignment.description %></h5>
             <h5>Specifications: <%= assignment.specs %></h5>
             <h5>Deadline: <%= assignment.deadline %></h5>
-            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
+            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-primary" %></h6>
+
             <% end %>
             <% end %>
-          </blockquote>
+
         </div>
       </div>
     </div>
     <div class="col-xs-12 col-md-8">
-      <div class="card card-inverse card-primary mb-3 text-left">
+      <div class="card card-inverse past mb-3 text-left">
         <div class="card-block">
-          <blockquote class="card-blockquote">
+
             <h4><strong>Previous assignments</strong></h4>
             <% @student.classroom.assignments.each do |assignment| %>
             <% if assignment.deadline < Date.today %>
@@ -66,10 +67,10 @@
             <h5>Specifications: <%= assignment.specs %></h5>
             <h5>Deadline: <%= assignment.deadline %></h5>
             <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-success" %></h6>
+            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-info" %></h6>
             <% end %>
             <% end %>
-          </blockquote>
+
         </div>
       </div>
     </div>
@@ -77,15 +78,13 @@
   <br>
   <div class="row">
     <div class="col-xs-12">
-      <div class="card card-inverse card-warning mb-3 text-center">
+      <div class="card card-inverse todo mb-3 text-center">
         <div class="card-block">
-          <blockquote class="card-blockquote">
             <h4><strong>Still To Do</strong></h4>
             <ul>
               <li>Overall graphs of performance (with clickable filters on performance)</li>
               <li>Cards showing previous assignments with grades (clickable for detail)</li>
             </ul>
-          </blockquote>
         </div>
       </div>
     </div>
