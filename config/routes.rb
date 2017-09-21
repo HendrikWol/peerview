@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :assignments
   end
   resources :assignments, only: [] do
-    resources :papers, only: [:new, :create, :show, :delete]
+    resources :papers
   end
   resources :topics
 
