@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-  before_action :set_teacher
+  before_action :set_teacher, except: [:show]
   def index
     @assignments = Assignment.all
     # @assignments = Assignment.all.where(@assignment.deadline < Date.today)

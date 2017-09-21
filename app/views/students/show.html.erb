@@ -19,62 +19,21 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-md-8">
-      <div class="card card-inverse urgent text-left">
-        <div class="card-block">
 
-            <h4><strong>Todays assignments</strong></h4>
-            <% @student.classroom.assignments.each do |assignment| %>
-            <% if assignment.deadline == Date.today %>
-            <h5>Assignment name: <%= assignment.name %></h5>
-            <h5>Description: <%= assignment.description %></h5>
-            <h5>Specifications: <%= assignment.specs %></h5>
-            <h5>Deadline: <%= assignment.deadline %></h5>
-            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-danger" %></h6>
-            <% end %>
-            <% end %>
-
+    <% hash_options_assignments.each do |k,v| %>
+      <div class="col-xs-12 col-md-8">
+        <div class="card card-inverse <%= k %> text-left">
+          <div class="card-block">
+              <h4><strong><%= v[:text] %></strong></h4>
+              <%= render partial: 'assignment', collection: @student.classroom.assignments, as: :assignment , locals: {operation: v[:operation]}%>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-8">
-      <div class="card card-inverse upcoming mb-3 text-left">
-        <div class="card-block">
+    <% end %>
 
-            <h4><strong>Upcoming assignment</strong></h4>
-            <% @student.classroom.assignments.each do |assignment| %>
-            <% if assignment.deadline > Date.today %>
-            <h5>Assignment name: <%= assignment.name %></h5>
-            <h5>Description: <%= assignment.description %></h5>
-            <h5>Specifications: <%= assignment.specs %></h5>
-            <h5>Deadline: <%= assignment.deadline %></h5>
-            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-primary" %></h6>
 
-            <% end %>
-            <% end %>
 
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-8">
-      <div class="card card-inverse past mb-3 text-left">
-        <div class="card-block">
 
-            <h4><strong>Previous assignments</strong></h4>
-            <% @student.classroom.assignments.each do |assignment| %>
-            <% if assignment.deadline < Date.today %>
-            <h5>Assignment name: <%= assignment.name %></h5>
-            <h5>Description: <%= assignment.description %></h5>
-            <h5>Specifications: <%= assignment.specs %></h5>
-            <h5>Deadline: <%= assignment.deadline %></h5>
-            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-            <h6><%= link_to 'Show details', teacher_assignment_path(assignment),  class: "btn btn-info" %></h6>
-            <% end %>
-            <% end %>
-
-        </div>
-      </div>
-    </div>
   </div>
   <br>
   <div class="row">

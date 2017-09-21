@@ -18,7 +18,7 @@ class PapersController < ApplicationController
     @paper.student = current_student
     @paper.assignment = @assignment
     if @paper.save
-      redirect_to assignment_papers_path(@assignment)
+      redirect_to assignment_path(@assignment)
     else
       render :new
     end

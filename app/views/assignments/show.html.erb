@@ -1,23 +1,39 @@
 <div class="profile-container">
   <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <div class="profile-card text-center">
 
 
-<h2>Assignment overview:</h2>
-<br>
-<h5>Teacher name: <%= @assignment.teacher.first_name %>
-        <%= @assignment.teacher.last_name %></h5>
-        <h5>Topic: <%= @assignment.topic.name %></h5>
-        <h5>Assignment name: <%= @assignment.name %></h5>
-        <h5>Description: <%= @assignment.description %></h5>
-        <h5>Specifications: <%= @assignment.specs %></h5>
-        <h5>Deadline: <%= @assignment.deadline %></h5>
-        <h5>Status: <%= @assignment.status %></h5>
-  <br>
-  <h6><%= link_to 'Upload Your Assignment',  new_assignment_paper_path(@assignment),  class: "btn btn-success" %></h6>
+        <h2>Assignment overview:</h2>
+        <br>
+        <h5>Teacher name: <%= @assignment.teacher.first_name %>
+          <%= @assignment.teacher.last_name %></h5>
+          <h5>Topic: <%= @assignment.topic.name %></h5>
+          <h5>Assignment name: <%= @assignment.name %></h5>
+          <h5>Description: <%= @assignment.description %></h5>
+          <h5>Specifications: <%= @assignment.specs %></h5>
+          <h5>Deadline: <%= @assignment.deadline %></h5>
+          <h5>Status: <%= @assignment.status %></h5>
+          <br>
+          <h6><%= link_to 'Upload Your Assignment',  new_assignment_paper_path(@assignment),  class: "btn btn-success" %></h6>
 
 
-  <%= link_to 'Go back to Dashboard', student_path, class: "btn btn-succes" %>
 
+        </div>
+      </div>
 
-</div>
-</div>
+      <div class="col-xs-12 col-md-8">
+        <div class="card card-inverse past mb-3 text-left">
+          <div class="card-block">
+            <h2>You submitted paper:</h2>
+
+            <% @assignment.papers.each do |file| %>
+
+            <h5><%= file.student.first_name  %> <%= file.student.last_name  %> - <%= link_to "SHOW",file.attachment.url, target: '_blank' %> </h5>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

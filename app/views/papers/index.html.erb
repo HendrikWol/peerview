@@ -5,7 +5,6 @@
     <% @assignment.papers.each do |file| %>
     <h5><%= file.student.first_name  %> <%= file.student.last_name  %> - <%= link_to "SHOW",file.attachment.url, target: '_blank' %> </h5>
 
-
-        <% end %>
+    <% end %>
   </div>
 </div>
