@@ -54,6 +54,6 @@ class AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :teacher_id, :specs, :topic_id)
+    params.require(:assignment).permit(:name, :deadline, :description, :status, :evaluation_id, :classroom_id, :teacher_id, :specs, :topic_id, :attachment, :attachment_cache)
   end
 end
