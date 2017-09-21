@@ -8,8 +8,6 @@
       <%= f.input :specs  %>
       <%= f.input :deadline  %>
       <%= f.input :classroom_id, collection: Classroom.all %>
-      <%= f.input :attachment %>
-      <%= f.input :attachment_cache, as: :hidden %>
 
       <%= f.button :submit, class: 'btn btn-success' %>
       <% end %>
