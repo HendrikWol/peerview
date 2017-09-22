@@ -11,9 +11,12 @@
 }
 
 .card-inverse {
-  border: solid 0.2px;
-  border-left: solid 6px;
-  padding: 5px;
+  border-top: 0.2px;
+  border-right: 0.2px;
+  border-bottom: 0.2px;
+
+  border-left: solid 3px;
+  padding: 0px;
   box-shadow: 0px 1px px rgba(28, 89, 121, 0.4);
   border-radius: 0px;
   margin-bottom: 10px;
@@ -24,11 +27,11 @@
   }
 
  .upcoming {
-  border-color: #52c4ce;
+  border-color: black;
   }
 
 .past {
-  border-color: #00939d;
+  border-color: black;
   }
 
 .todo {
