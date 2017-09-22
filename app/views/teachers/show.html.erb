@@ -1,8 +1,6 @@
-<div class="container">
+<div class="card-container">
   <div class="row">
-    <div class="text-left">
-      <br>
-    </div>
+    <br>
     <div class="col-xs-12 col-md-6">
       <div class="profile-card text-center">
         <div class="card-header">
@@ -22,11 +20,12 @@
         </div>
       </div>
 
-      <div class="row">
+
         <div class="col-xs-12 col-md-6">
           <div class="profile-card text-center">
             <div class="card-header">
               <h4><strong>Classes:</strong></h4>
+              </div>
               <div class="card-body">
                <% classroom_array = [] %>
                <% @teacher.topics.each do |topic| %>
@@ -36,28 +35,23 @@
                <% end %>
                <br>
                <% classroom_array.uniq.each do |p| %>
-               <ul>
+
                 <br>
-                <li><%= p[:name] %>  <%= link_to 'Show students', classroom_path(p[:id]),  class: "btn btn-blue-1" %></li>
+                <%= p[:name] %>
                 <br>
-              </ul>
+                <%= link_to 'SHOW STUDENTS', classroom_path(p[:id]),  class: "btn btn-blue-1" %>
+                <br>
+
               <% end %>
+              <hr>
                <h4 class="text-center">Create a new assignment:</h4> <%= link_to "NEW ASSIGNMENT", new_teacher_assignment_path(@teacher), class: "btn btn-blue-1" %>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
 
-
-       <h4><strong>Teaching:</strong></h4>
-       <% @teacher.topics.each do |topic| %>
-       <ul>
-         <li><%= topic.name%></li>
-       </ul>
-       <% end %>
 
 
   </div>
-</div>
+
