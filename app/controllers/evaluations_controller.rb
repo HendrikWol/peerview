@@ -2,6 +2,8 @@ class EvaluationsController < ApplicationController
  before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
   def index
     @evaluations = Evaluation.all
+    # @assignments = Assignment.all
+    @papers = Paper.all
   end
 
   def show
@@ -14,7 +16,7 @@ class EvaluationsController < ApplicationController
 
   def create
     @evaluation = Evaluation.new(evaluation_params)
-    @evaluation.teacher = current_user
+    @evaluation.student = current_student
     if @evaluation.save
       redirect_to evaluations_path
     else

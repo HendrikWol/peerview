@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-  before_action :set_teacher
+  before_action :set_teacher, except: [:show]
   def index
     @assignments = Assignment.all
     # @assignments = Assignment.all.where(@assignment.deadline < Date.today)
@@ -47,10 +47,10 @@ class AssignmentsController < ApplicationController
 
   private
   def set_teacher
-    @teacher = Teacher.find(params[:id])
+    @teacher = Teacher.find(params[:teacher_id])
   end
   def set_assignment
-    @assignment = Assignment.find(params[:teacher_id])
+    @assignment = Assignment.find(params[:id])
   end
 
   def assignment_params

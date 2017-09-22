@@ -1,5 +1,5 @@
 .banner {
-  background-color: #469AE0;
+  background-color: #52C4CE;
   text-align: center;
   height: 90vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
@@ -37,5 +37,8 @@
 .banner-card {
   padding: 20px;
   align-items: center;
+  h5 {
+    color: #52C4CE;
+  }
 }
 

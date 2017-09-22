@@ -3,6 +3,7 @@ class PapersController < ApplicationController
   before_action :set_assignment
   def index
     @papers = Paper.all
+    @student = current_student
   end
 
   def show
@@ -18,7 +19,7 @@ class PapersController < ApplicationController
     @paper.student = current_student
     @paper.assignment = @assignment
     if @paper.save
-      redirect_to assignment_papers_path(@assignment)
+      redirect_to assignment_path(@assignment)
     else
       render :new
     end
@@ -48,6 +49,6 @@ class PapersController < ApplicationController
   end
 
   def paper_params
-    params.require(:paper).permit(:id, :assignment_id, :student_id, :evaluation_id, :attachment, :attachment_cache)
+    params.require(:paper).permit(:id, :assignment_id, :student_id, :evaluation_id, :attachment, :attachment_cache, :title)
   end
 end

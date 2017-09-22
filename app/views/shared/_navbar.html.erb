@@ -1,7 +1,7 @@
-<div class="navbar-wagon" style="background-color:#272A30;" >
+<div class="navbar-wagon" style="background-color:white;" >
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    PEERVIEW
   <% end %>
 
   <!-- Right Navigation -->
@@ -11,14 +11,13 @@
     <% if student_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "How to", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Blog", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Pricing", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag @student.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -44,15 +43,11 @@
       <% elsif teacher_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "How to", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Pricing", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Blog", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag @teacher.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -74,8 +69,12 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Get Started"), sign_up_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "HOW TO", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "BLOG", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "PRICING", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "btn btn-blue" %>
     <% end %>
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->

@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   resources :programs
   resources :students
   resources :teachers do
-    resources :assignments
+    resources :assignments, except: [:show]
   end
-  resources :assignments, only: [] do
+
+  resources :assignments, only: [:show] do
     resources :papers
   end
   resources :topics

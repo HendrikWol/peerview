@@ -2,7 +2,7 @@
 <h1>Upload your document here</h1>
   <div class="row" style="margin-right: 200px;">
       <%= simple_form_for([@assignment, @paper]) do |f| %>
-
+      <%= f.input :title %>
       <%= f.input :attachment %>
       <%= f.input :attachment_cache, as: :hidden %>
 
