@@ -3,8 +3,8 @@
   display: grid;
   grid-template-columns: 120px 1fr;
   grid-template-rows: 50% 50%;
-  border: solid 1px #52c4ce;
-  box-shadow: 0 1px 1px  rgba(0,0,0,0.3);
+  border: solid 1px #F8F8F8;
+  box-shadow: 1px 1px 1px 1px  rgba(0,0,0,0.3);
   padding: 10px;
   margin: 10px 5px;
 }
@@ -31,7 +31,9 @@
 
 .card-header {
   background-color: #F8F8F8;
-
+  h4 {
+  color: black;
+  }
 }
 
 .card-body {
