@@ -14,8 +14,8 @@
   border: solid 0.2px;
   border-left: solid 6px;
   padding: 5px;
-  box-shadow: 1px 2px 3px rgba(28, 89, 121, 0.4);
-  border-radius: 3px;
+  box-shadow: 0px 1px px rgba(28, 89, 121, 0.4);
+  border-radius: 0px;
   margin-bottom: 10px;
 }
 
@@ -24,12 +24,13 @@
   }
 
  .upcoming {
-  border-color: #46466E;
+  border-color: #52c4ce;
   }
 
 .past {
-  border-color: #BDBDD7;
+  border-color: #00939d;
   }
+
 .todo {
   border-color: #E67E22;
 }

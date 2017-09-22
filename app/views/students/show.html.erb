@@ -3,11 +3,11 @@
   <div class="row">
     <div class="text-left">
       <br>
-      <h2><strong>Welcome To Your Dashboard, <%= @student.first_name %>!</strong></h2>
+      <h2><strong>Welcome to your dashboard, <%= @student.first_name %>!</strong></h2>
     </div>
     <div class="col-xs-12 col-md-4">
       <div class="profile-card text-center">
-        <%= @student.first_name %> <%= @student.last_name %></h4></strong></h4>
+        <h4><%= @student.first_name %> <%= @student.last_name %></h4>
         <br>
         <div class="banner-image">
           <%= image_tag @student.photo, class:"banner-image avatar"%>
