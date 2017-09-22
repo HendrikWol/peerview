@@ -1,9 +1,7 @@
 
-<div class="container">
+<div class="card-container">
   <div class="row">
-    <div class="text-left">
-      <br>
-    </div>
+  <br>
     <div class="col-xs-12 col-md-6">
       <div class="profile-card text-center">
         <div class="card-header">
@@ -25,7 +23,7 @@
       </div>
     </div>
 
-    <div class="row">
+
       <div class="col-xs-12 col-md-6">
         <div class="profile-card text-center">
           <div class="card-header">
@@ -50,25 +48,27 @@
           </div>
         </div>
       </div>
-    </div>
+
   </div>
 
   <br>
   <br>
 
+  <div class="row">
   <% hash_options_assignments.each do |k,v| %>
-  <div class="col-xs-12 col-md-4">
-    <div class="profile-card card-inverse <%= k %>">
-      <div class="card-header">
-        <h4><strong><%= v[:text] %></strong></h4>
-        </div>
-        <div class="card-body">
-        <%= render partial: 'assignment', collection: @student.classroom.assignments, as: :assignment , locals: {operation: v[:operation]}%>
-        </div>
+    <div class="col-xs-12 col-md-4">
+      <div class="profile-card card-inverse <%= k %>">
+        <div class="card-header">
+          <h4><strong><%= v[:text] %></strong></h4>
+          </div>
+          <div class="card-body">
+          <%= render partial: 'assignment', collection: @student.classroom.assignments, as: :assignment , locals: {operation: v[:operation]}%>
+          </div>
 
+      </div>
     </div>
-  </div>
   <% end %>
+  </div>
 
   <br>
 
