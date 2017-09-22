@@ -1,8 +1,19 @@
-<h1>Classroom Overview:</h1>
-<h4>(<%= @classroom.name %>)</h4>
-  <h4><strong>Students enrolled:</strong></h4>
-  <br>
-<% @classroom.students.each do |student| %>
-  <p>Name: <%= student.first_name %> <%= student.last_name %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <h1>Classroom Overview:</h1>
+    <h4>(<%= @classroom.name %>)</h4>
+    <h4><strong>Students enrolled:</strong></h4>
+    <br>
+    <% @classroom.students.each do |student| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="card-classroom">
+    <p class="element"><%= image_tag student.photo, class: 'avatar-small' %></p>
+    <p class="other-element1"><%= student.first_name %> <%= student.last_name %></p>
+    <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'btn btn-blue-1' %></p>
+    </div>
+    </div>
+    <% end %>
 
+
+  </div>
+</div>

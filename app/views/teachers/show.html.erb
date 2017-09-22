@@ -1,15 +1,30 @@
 <div class="container">
   <div class="row">
-
-      <h2><strong>Teacher Dashboard: </strong></h2>
+    <div class="text-left">
       <br>
-      <h4>Name: <%= @teacher.first_name %> <%= @teacher.last_name %></h4>
-      <h5>Email: <%= @teacher.email %></h5>
-      <h5>City: <%= @teacher.city %></h5>
-      <h5>Description: <%= @teacher.description %></h5>
-      <br>
+      <h2><strong>Welcome to your dashboard, <%= @teacher.first_name %>!</strong></h2>
+      </div>
+      <div class="col-xs-12 col-md-4">
+      <div class="profile-card text-center">
+        <h4><%= @teacher.first_name %> <%= @teacher.last_name %></h4>
+        <br>
+        <div class="banner-image">
+          <%= image_tag @teacher.photo, class:"banner-image avatar"%>
+          <h5 class="weak"><%= @teacher.city %></h5>
+          <h5 class="weak"><%= @teacher.email %></h5>
+          <h5 ><%= @teacher.description %></h5>
+          <%= link_to 'Edit profile', edit_teacher_path %>
+        </div>
+      </div>
+    </div>
 
-       <h4><strong>Classes:</strong></h4>
+
+    <div class="row">
+    <div class="col-xs-12">
+      <div class="card card-inverse mb-3 ">
+        <div class="card-block">
+
+            <h4><strong>Classes:</strong></h4>
        <% classroom_array = [] %>
        <% @teacher.topics.each do |topic| %>
        <% topic.assignments.each do |assignment| %>
@@ -20,9 +35,16 @@
 
       <% classroom_array.uniq.each do |p| %>
       <ul>
-        <li><%= p[:name] %>  <%= link_to 'Show students', classroom_path(p[:id]),  class: "btn btn-success" %></li>
+        <li><%= p[:name] %>  <%= link_to 'Show students', classroom_path(p[:id]),  class: "btn btn-blue-1" %></li>
       </ul>
       <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
        <h4><strong>Teaching:</strong></h4>
        <% @teacher.topics.each do |topic| %>
@@ -30,6 +52,7 @@
          <li><%= topic.name%></li>
        </ul>
        <% end %>
+
 
   </div>
 </div>
