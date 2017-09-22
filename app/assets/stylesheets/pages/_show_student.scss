@@ -11,11 +11,14 @@
 }
 
 .card-inverse {
-  border: solid 0.2px;
-  border-left: solid 6px;
+  border-top: 0.2px;
+  border-right: 0.2px;
+  border-bottom: 0.2px;
+
+  border-left: solid 3px;
   padding: 5px;
-  box-shadow: 1px 2px 3px rgba(28, 89, 121, 0.4);
-  border-radius: 3px;
+  box-shadow: 0px 1px px rgba(28, 89, 121, 0.4);
+  border-radius: 0px;
   margin-bottom: 10px;
 }
 
@@ -24,12 +27,13 @@
   }
 
  .upcoming {
-  border-color: #46466E;
+  border-color: black;
   }
 
 .past {
-  border-color: #BDBDD7;
+  border-color: black;
   }
+
 .todo {
   border-color: #E67E22;
 }

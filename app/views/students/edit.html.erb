@@ -18,11 +18,11 @@
       <%= f.input :date_of_birth, as: :date %>
       <%= f.input :city %>
       <%= f.input :classroom_id, collection: Classroom.all %>
-      <%= f.button :submit, class: "btn btn-success" %>
+      <%= f.button :submit, class: "btn btn-blue" %>
       <% end %>
       <br>
       </div>
-      <%= link_to "Change password", edit_student_registration_path, class: "btn btn-danger" %>
+      <%= link_to "Change password", edit_student_registration_path, class: "btn btn-red" %>
       </div>
     </div>
   </div>

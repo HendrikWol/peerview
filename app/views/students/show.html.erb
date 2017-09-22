@@ -3,48 +3,73 @@
   <div class="row">
     <div class="text-left">
       <br>
-      <h2><strong>Welcome To Your Dashboard, <%= @student.first_name %>!</strong></h2>
     </div>
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
       <div class="profile-card text-center">
-        <%= @student.first_name %> <%= @student.last_name %></h4></strong></h4>
-        <br>
-        <div class="banner-image">
-          <%= image_tag @student.photo, class:"banner-image avatar"%>
-          <h5 ><%= @student.description %></h5>
-          <h5><%= @student.classroom.name %></h5>
-          <h5 class="weak"><%= @student.city %></h5>
-          <h5 class="weak"><%= @student.date_of_birth %></h5>
-          <%= link_to 'Edit profile', edit_student_path %>
+        <div class="card-header">
+          <h4><strong>Welcome to your dashboard, <%= @student.first_name %>!</strong></h4>
+        </div>
+        <div class="card-body">
+
+          <h4><%= @student.first_name %> <%= @student.last_name %></h4>
+          <br>
+          <div class="banner-image">
+            <%= image_tag @student.photo, class:"banner-image avatar"%>
+            <h5 ><%= @student.description %></h5>
+            <h5><%= @student.classroom.name %></h5>
+            <h5 class="weak"><%= @student.city %></h5>
+            <h5 class="weak"><%= @student.date_of_birth %></h5>
+            <%= link_to 'EDIT PROFILE', edit_student_path, class: 'btn btn-blue-1' %>
+          </div>
         </div>
       </div>
     </div>
 
-    <% hash_options_assignments.each do |k,v| %>
-      <div class="col-xs-12 col-md-8">
-        <div class="card card-inverse <%= k %> text-left">
-          <div class="card-block">
-              <h4><strong><%= v[:text] %></strong></h4>
-              <%= render partial: 'assignment', collection: @student.classroom.assignments, as: :assignment , locals: {operation: v[:operation]}%>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="profile-card text-center">
+          <div class="card-header">
+            <h4><strong>Your classroom:</strong></h4>
+          </div>
+          <div class="card-body">
+
+            <%= @student.classroom.name %>
+            <br>
+
+            <% @classroom.students.each do |student| %>
+
+            <div class="card-classroom">
+              <p class="element"><%= image_tag student.photo, class: 'avatar-small' %></p>
+              <p class="other-element1"><%= student.first_name %> <%= student.last_name %></p>
+              <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'btn btn-blue-1' %></p>
+
+            </div>
+            <% end %>
+
 
           </div>
         </div>
       </div>
-    <% end %>
-
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="card card-inverse todo mb-3 text-center">
-        <div class="card-block">
-            <h4><strong>Still To Do</strong></h4>
-            <ul>
-              <li>Overall graphs of performance (with clickable filters on performance)</li>
-              <li>Cards showing previous assignments with grades (clickable for detail)</li>
-            </ul>
-        </div>
-      </div>
     </div>
   </div>
+
+  <br>
+  <br>
+
+  <% hash_options_assignments.each do |k,v| %>
+  <div class="col-xs-12 col-md-4">
+    <div class="profile-card card-inverse <%= k %>">
+      <div class="card-header">
+        <h4><strong><%= v[:text] %></strong></h4>
+        </div>
+        <div class="card-body">
+        <%= render partial: 'assignment', collection: @student.classroom.assignments, as: :assignment , locals: {operation: v[:operation]}%>
+        </div>
+
+    </div>
+  </div>
+  <% end %>
+
+  <br>
+
 </div>
