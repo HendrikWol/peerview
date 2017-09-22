@@ -2,47 +2,52 @@
   <div class="row">
     <div class="text-left">
       <br>
-      <h2><strong>Welcome to your dashboard, <%= @teacher.first_name %>!</strong></h2>
-      </div>
-      <div class="col-xs-12 col-md-4">
+    </div>
+    <div class="col-xs-12 col-md-6">
       <div class="profile-card text-center">
-        <h4><%= @teacher.first_name %> <%= @teacher.last_name %></h4>
-        <br>
-        <div class="banner-image">
-          <%= image_tag @teacher.photo, class:"banner-image avatar"%>
-          <h5 class="weak"><%= @teacher.city %></h5>
-          <h5 class="weak"><%= @teacher.email %></h5>
-          <h5 ><%= @teacher.description %></h5>
-          <%= link_to 'Edit profile', edit_teacher_path %>
+        <div class="card-header">
+          <h4><strong>Welcome to your dashboard, <%= @teacher.first_name %>!</strong></h2>
+          </div>
+          <div class="card-body">
+            <h4><%= @teacher.first_name %> <%= @teacher.last_name %></h4>
+            <br>
+            <div class="banner-image">
+              <%= image_tag @teacher.photo, class:"banner-image avatar"%>
+              <h5 ><%= @teacher.description %></h5>
+              <h5 class="weak"><%= @teacher.city %></h5>
+              <h5 class="weak"><%= @teacher.email %></h5>
+              <%= link_to 'EDIT PROFILE', edit_teacher_path, class: 'btn btn-blue-1' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="profile-card text-center">
+            <div class="card-header">
+              <h4><strong>Classes:</strong></h4>
+              <div class="card-body">
+               <% classroom_array = [] %>
+               <% @teacher.topics.each do |topic| %>
+               <% topic.assignments.each do |assignment| %>
+               <% classroom_array << {id:assignment.classroom.id, name: assignment.classroom.name } %>
+               <% end %>
+               <% end %>
+               <br>
+               <% classroom_array.uniq.each do |p| %>
+               <ul>
+                <br>
+                <li><%= p[:name] %>  <%= link_to 'Show students', classroom_path(p[:id]),  class: "btn btn-blue-1" %></li>
+                <br>
+              </ul>
+              <% end %>
+               <h4 class="text-center">Create a new assignment:</h4> <%= link_to "NEW ASSIGNMENT", new_teacher_assignment_path(@teacher), class: "btn btn-blue-1" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-
-    <div class="row">
-    <div class="col-xs-12">
-      <div class="card card-inverse mb-3 ">
-        <div class="card-block">
-
-            <h4><strong>Classes:</strong></h4>
-       <% classroom_array = [] %>
-       <% @teacher.topics.each do |topic| %>
-       <% topic.assignments.each do |assignment| %>
-       <% classroom_array << {id:assignment.classroom.id, name: assignment.classroom.name } %>
-
-       <% end %>
-      <% end %>
-
-      <% classroom_array.uniq.each do |p| %>
-      <ul>
-        <li><%= p[:name] %>  <%= link_to 'Show students', classroom_path(p[:id]),  class: "btn btn-blue-1" %></li>
-      </ul>
-      <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
 
 
