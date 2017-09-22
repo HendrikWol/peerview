@@ -1,8 +1,9 @@
 
 <% if assignment.deadline.send(operation, Date.today) %>
-            <h5>Assignment name: <%= assignment.name %></h5>
-            <h5>Description: <%= assignment.description %></h5>
-            <h5>Specifications: <%= assignment.specs %></h5>
-            <h5>Deadline: <%= assignment.deadline %></h5>
-            <h6><%= link_to 'SHOW DETAILS', assignment_path(assignment),  class: "btn btn-blue-1" %></h6>
+<h5><strong>Assignment name: </strong><%= assignment.name %></h5>
+<h5><strong>Description: </strong><%= assignment.description %></h5>
+<h5><strong>Specifications: </strong><%= assignment.specs %></h5>
+<h5><strong>Deadline: </strong><%= assignment.deadline %></h5>
+<h6><%= link_to 'SHOW DETAILS', assignment_path(assignment),  class: "btn btn-blue-1" %></h6>
+<hr>
 <% end %>
