@@ -26,13 +26,11 @@
           <div class="card-block">
               <h4><strong><%= v[:text] %></strong></h4>
               <%= render partial: 'assignment', collection: @student.classroom.assignments, as: :assignment , locals: {operation: v[:operation]}%>
+
           </div>
         </div>
       </div>
     <% end %>
-
-
-
 
   </div>
   <br>
