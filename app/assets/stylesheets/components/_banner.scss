@@ -2,12 +2,12 @@
   background-color: white;
   text-align: center;
   height: 90vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .banner h1 {
   color: #52C4CE;
   font-size: 50px;
@@ -15,6 +15,7 @@
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   font-family: 'Source Sans Pro', sans-serif;
 }
+
 .banner p {
   color: #52C4CE;
   font-size: 25px;
@@ -29,6 +30,7 @@
   align-items: center;
   border-radius: 50%;
 }
+
 .banner-image img {
   height: 250px;
   align-items: center;
@@ -54,8 +56,8 @@
 }
 
 .main-picture {
-  height: 220px;
-  width: 400px;
+  width: 450px;
+  height: auto;
   vertical-align: center;
 }
 
@@ -95,7 +97,7 @@
 }
 
 .line-divider {
-  width: 100px;
+  width: 80px;
   height: 3px;
   margin-top: 20px;
   margin-left: 1px;
@@ -106,6 +108,13 @@
 .title-small {
   font-size: 38px;
   line-height: 60px;
+  text-align: center;
+  text-transform: none;
+  font-weight: 100;
+}
+.title-small-signup {
+  font-size: 24px;
+  line-height: 30px;
   text-align: center;
   text-transform: none;
   font-weight: 100;
@@ -142,6 +151,32 @@
   text-align: center;
   letter-spacing: 2px;
   text-transform: uppercase;
+  a {
+    text-decoration: none;
+  }
+}
+
+.button-peer-signup {
+  color: white;
+  cursor: pointer;
+  width: auto;
+  max-width: 500px;
+  min-width: 250px;
+  margin-top: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 10px 72px;
+  border: 1px solid #48afb8;
+  background-color: #48afb8;
+  box-shadow: 2px 2px 8px 0 rgba(0,0,0,.1);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  a {
+    text-decoration: none;
+  }
 }
 
 .button-peer-white {
