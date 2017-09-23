@@ -31,20 +31,6 @@
           </div>
           <div class="card-body">
 
-            <%= @student.classroom.name %>
-            <br>
-
-            <% @classroom.students.each do |student| %>
-
-            <div class="card-classroom">
-              <p class="element"><%= image_tag student.photo, class: 'avatar-small' %></p>
-              <p class="other-element1"><%= student.first_name %> <%= student.last_name %></p>
-              <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'btn btn-blue-1' %></p>
-
-            </div>
-            <% end %>
-
-
           </div>
         </div>
       </div>
