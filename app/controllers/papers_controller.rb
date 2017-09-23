@@ -3,7 +3,6 @@ class PapersController < ApplicationController
   before_action :set_assignment
   def index
     @papers = Paper.all
-    @student = current_student
   end
 
   def show
@@ -19,11 +18,13 @@ class PapersController < ApplicationController
     @paper.student = current_student
     @paper.assignment = @assignment
     if @paper.save
+      @paper.student == current_student
       redirect_to assignment_path(@assignment)
     else
       render :new
     end
   end
+
 
   def edit
   end

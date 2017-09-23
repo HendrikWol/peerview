@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921152940) do
+ActiveRecord::Schema.define(version: 20170923124350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170921152940) do
     t.datetime "updated_at", null: false
     t.string "attachment"
     t.string "title"
+    t.boolean "evaluated", default: false, null: false
     t.index ["assignment_id"], name: "index_papers_on_assignment_id"
     t.index ["evaluation_id"], name: "index_papers_on_evaluation_id"
     t.index ["student_id"], name: "index_papers_on_student_id"
