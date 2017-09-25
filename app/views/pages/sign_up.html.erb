@@ -1,30 +1,32 @@
+<div class="container-white">
 <div class="container">
   <div class="row">
   <div class="text-center">
   <br>
-  <h3>Welcome to PeerView</h3>
+  <h1 class="title-small">Start using PeerView</h1>
   </div>
     <div class="col-xs-12 col-md-4 col-md-offset-2">
     <div class="sign-up-card text-center">
-      <h4><strong>Teacher</strong></h4>
+      <h4 class="title-small-signup"><strong>Teacher</strong></h4>
       <br>
       <div class="banner-image">
       <%= image_tag 'teacher.png' %>
       </div>
       <br>
-      <%= link_to 'I AM A TEACHER', teacher_session_path, class: 'btn btn-blue-1' %>
+      <%= link_to 'I AM A TEACHER', teacher_session_path, class: 'button-peer-signup' %>
     </div>
     </div>
     <div class="col-xs-12 col-md-4">
       <div class="sign-up-card text-center">
-      <h4><strong>Student</strong></h4>
+      <h4 class="title-small-signup"><strong>Student</strong></h4>
       <br>
       <div class="banner-image">
         <%= image_tag 'student.png' %>
       </div>
       <br>
-      <%= link_to 'I AM A STUDENT', student_session_path, class: 'btn btn-blue-1' %>
+      <%= link_to 'I AM A STUDENT', student_session_path, class: 'button-peer-signup' %>
       </div>
     </div>
   </div>
+</div>
 </div>
