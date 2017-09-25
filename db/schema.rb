@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923124350) do
+ActiveRecord::Schema.define(version: 20170925103826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20170923124350) do
     t.text "feeback_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "assignment_id"
-    t.index ["assignment_id"], name: "index_evaluations_on_assignment_id"
+    t.bigint "paper_id"
+    t.index ["paper_id"], name: "index_evaluations_on_paper_id"
   end
 
   create_table "papers", force: :cascade do |t|
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20170923124350) do
   add_foreign_key "assignments", "evaluations"
   add_foreign_key "assignments", "teachers"
   add_foreign_key "assignments", "topics"
-  add_foreign_key "evaluations", "assignments"
+  add_foreign_key "evaluations", "papers"
   add_foreign_key "papers", "assignments"
   add_foreign_key "papers", "evaluations"
   add_foreign_key "papers", "students"

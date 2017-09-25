@@ -1,5 +1,6 @@
 class EvaluationsController < ApplicationController
  before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
+ before_action :set_paper, only: [:new, :create]
   def index
     @evaluations = Evaluation.all
     # @assignments = Assignment.all
@@ -21,7 +22,7 @@ class EvaluationsController < ApplicationController
 
   def create
     @evaluation = Evaluation.new(evaluation_params)
-    @evaluation.student = current_student
+    @evaluation.paper = @paper
     if @evaluation.save
       redirect_to evaluations_path
     else
@@ -71,5 +72,9 @@ class EvaluationsController < ApplicationController
 
   def evaluation_params
     params.require(:evaluation).permit(:readability, :referencing, :knowledge_of_topic, :final_grade, :feeback_text, :assignment_id)
+  end
+
+  def set_paper
+    @paper = Paper.find(params[:paper_id])
   end
 end

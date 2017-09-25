@@ -1,0 +1,38 @@
+<div class="card-container">
+  <div class="row">
+  <br>
+    <div class="col-xs-12 col-md-6">
+        <div class="profile-card text-center">
+          <div class="card-header">
+            <h4><strong>Finished evaluation:</strong></h4>
+          </div>
+          <div class="card-body">
+            <p><%= @evaluation.paper.student.first_name %> <%= @evaluation.paper.student.last_name %></p>
+            <p>Assignment: <%= @evaluation.paper.assignment.name %></p>
+        <p>Topic: <%= @evaluation.paper.assignment.topic.name %></p>
+        <p>Deadline: <%= @evaluation.paper.assignment.deadline %></p>
+        <hr>
+
+          <h4><strong>Given feedback:</strong></h4>
+          <p><strong>Final grade: </strong><%= @evaluation.final_grade %></p>
+          <p><strong>Readability: </strong><%= @evaluation.readability %></p>
+          <p><strong>Referencing: </strong><%= @evaluation.referencing %></p>
+          <p><strong>Topic knowledge: </strong><%= @evaluation.knowledge_of_topic %></p>
+          <p><strong>Feedback: </strong><%= @evaluation.feeback_text %></p>
+          <br>
+            <%= link_to "Back", evaluations_path, class: 'button-peer-white' %>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+  </div>
+
+  <br>
+
+</div>
