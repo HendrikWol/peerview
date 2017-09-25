@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :topics
 
   get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
+  get 'blog_post', to: 'pages#blog_post', as: 'blog_post'
 end
