@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :classrooms
-  resources :evaluations
+  resources :papers do
+    resources :evaluations, only: [:create, :new]
+  end
+
+  resources :evaluations, only: [:show, :index]
+
   resources :programs
   resources :students
   resources :teachers do

@@ -1,3 +1,82 @@
+<div class="card-container">
+  <div class="row">
+  <br>
+    <div class="col-xs-12 col-md-6">
+        <div class="profile-card text-center">
+          <div class="card-header">
+            <h4><strong>Your submissions:</strong></h4>
+          </div>
+          <div class="card-body">
+            <br>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 col-md-6">
+        <div class="profile-card text-center">
+          <div class="card-header">
+            <h4><strong>Your evaluations:</strong></h4>
+          </div>
+          <div class="card-body">
+            <% if @evaluated_paper %>
+      <% if @evaluated_paper.assignment.deadline < Date.today %>
+        <div>
+          <p>The assignment you have to review will displayed on <%= @evaluated_paper.assignment.deadline %></p>
+        </div>
+      <%else%>
+        <h4>You will evaluate</h4>
+        <!-- TODO: create a nice button for the download -->
+        <p><%= @evaluated_paper.student.first_name %> <%= @evaluated_paper.student.last_name %></p>
+        <p>Topic: <%= @evaluated_paper.assignment.topic.name %></p>
+        <p>Deadline: <%= @evaluated_paper.assignment.deadline %></p>
+        <br>
+        <%= link_to "Download", @evaluated_paper.attachment.url, target: '_blank', class: 'button-peer' %>
+        <%= link_to "EVALUATE", new_paper_evaluation_path(@evaluated_paper), class: 'button-peer-white' %>
+        <br>
+      <%end%>
+    <%end%>
+
+
+
+            <br>
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <br>
+  <br>
+
+
+
+  <div class="row">
+    <div class="col-xs-12 col-md 12">
+      <div class="profile-card">
+        <div class="card-header">
+          <h4><strong>Graphs: </strong></h4>
+          </div>
+          <div class="card-body">
+          <%= image_tag 'graph.png' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+</div>
+
+
+
+
+
+
+
+
 
 <div class="container">
   <div class="row">
@@ -33,3 +112,7 @@
 
   </div>
 </div>
+
+
+
+
