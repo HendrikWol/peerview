@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <h1>Classroom Overview:</h1>
-    <h4>(<%= @classroom.name %>)</h4>
-    <h4><strong>Students enrolled:</strong></h4>
+    <h1>Classroom Overview</h1>
+    <h4><strong> <%= @classroom.name %></strong></h4>
+    <h5><strong>Students enrolled:</strong></h5>
     <br>
     <% @classroom.students.each do |student| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
@@ -16,13 +16,14 @@
   </div>
   <hr>
   <div class="row">
-    <h4><strong>Assignments overview</strong></h4>
+    <h5><strong>Assignments overview</strong></h5>
     <% @classroom.assignments.each do |assignment| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card-assignment">
-        <p><%= link_to assignment.name, assignment_path %></p>
-        <p>Deadline: <%= assignment.deadline %></p>
+      <div class="card-assignment text-center">
+        <p><%= assignment.name %></p>
+        <p>Deadline: <%= assignment.deadline%></p>
         <p><%= assignment.teacher.first_name %> <%= assignment.teacher.last_name %></p>
+        <p><%= link_to 'See details', assignment_path, class: "btn btn-blue-1 text-center" %></p>
       </div>
     </div>
     <% end %>

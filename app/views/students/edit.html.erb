@@ -1,3 +1,4 @@
+<% if student_signed_in? && current_student.id == @student.id %>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -28,3 +29,6 @@
     </div>
   </div>
 </div>
+<% else %>
+<%= "You cannot edit the profile of your colleague" %>
+<% end %>
