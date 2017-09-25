@@ -29,6 +29,7 @@
         <h4>You will evaluate</h4>
         <!-- TODO: create a nice button for the download -->
         <p><%= @evaluated_paper.student.first_name %> <%= @evaluated_paper.student.last_name %></p>
+        <p>Assignment: <%= @evaluated_paper.assignment.name %></p>
         <p>Topic: <%= @evaluated_paper.assignment.topic.name %></p>
         <p>Deadline: <%= @evaluated_paper.assignment.deadline %></p>
         <br>

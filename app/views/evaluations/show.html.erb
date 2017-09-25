@@ -8,6 +8,7 @@
           </div>
           <div class="card-body">
             <p><%= @evaluation.paper.student.first_name %> <%= @evaluation.paper.student.last_name %></p>
+            <p>Assignment: <%= @evaluation.paper.assignment.name %></p>
         <p>Topic: <%= @evaluation.paper.assignment.topic.name %></p>
         <p>Deadline: <%= @evaluation.paper.assignment.deadline %></p>
         <hr>
