@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   resources :topics
 
   get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
+
+  get 'student_dashboard', to: 'evaluations#student_dashboard', as: 'student_dashboard'
 end

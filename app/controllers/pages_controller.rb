@@ -4,4 +4,8 @@ class PagesController < ApplicationController
     @student = current_student
   end
 
+  def student_dashboard
+  end
+
+
 end

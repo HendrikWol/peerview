@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Evaluation.destroy_all
 Paper.destroy_all
 Assignment.destroy_all
 Topic.destroy_all
@@ -52,7 +53,27 @@ new_topic1 = Topic.create(name: "Entrepreneurship ", program_id: new_program1.id
 new_topic2 = Topic.create(name: "Management & Business", program_id: new_program2.id, teacher_id: new_teacher1.id)
 new_topic3 = Topic.create(name: "Finance & Economics", program_id: new_program3.id, teacher_id: new_teacher1.id)
 
-new_assignment1 = Assignment.create(name: "Report on the WWII", deadline: Date.today, description: "Report about the entrepreneurship during the war", classroom_id: new_classroom1.id, teacher_id: new_teacher2.id, topic_id: new_topic1.id)
-new_assignment2 = Assignment.create(name: "Report on Adam Smith ideas", deadline: Date.today, description: "Report about the entrepreneurship of Adam Smith", classroom_id: new_classroom2.id, teacher_id: new_teacher1.id, topic_id: new_topic2.id)
-new_assignment3 = Assignment.create(name: "Report on the US under Trump", deadline: Date.today, description: "Report about the economy during the Donald Trump ", classroom_id: new_classroom3.id, teacher_id: new_teacher3.id, topic_id: new_topic3.id)
-new_assignment4 = Assignment.create(name: "Report on business and sports", deadline: Date.today, description: "Report about the impact of soccer in Europe's economy", classroom_id: new_classroom1.id, teacher_id: new_teacher1.id, topic_id: new_topic1.id)
+new_assignment1 = Assignment.create(name: "Report on the WWII", deadline: Date.today + 10.days , description: "Report about the entrepreneurship during the war", classroom_id: new_classroom1.id, teacher_id: new_teacher2.id, topic_id: new_topic1.id)
+new_assignment2 = Assignment.create(name: "Report on Adam Smith ideas", deadline: Date.today + 5.days, description: "Report about the entrepreneurship of Adam Smith", classroom_id: new_classroom2.id, teacher_id: new_teacher1.id, topic_id: new_topic2.id)
+new_assignment3 = Assignment.create(name: "Report on the US under Trump", deadline: Date.today + 4.days, description: "Report about the economy during the Donald Trump ", classroom_id: new_classroom3.id, teacher_id: new_teacher3.id, topic_id: new_topic3.id)
+new_assignment4 = Assignment.create(name: "Report on business and sports", deadline: Date.today + 7.days, description: "Report about the impact of soccer in Europe's economy", classroom_id: new_classroom1.id, teacher_id: new_teacher1.id, topic_id: new_topic1.id)
+new_assignment5 = Assignment.create(name: "Report xx on business and sports", deadline: Date.today - 30.days, description: "Report xxx about the impact of soccer in Europe's economy", classroom_id: new_classroom1.id, teacher_id: new_teacher1.id, topic_id: new_topic1.id)
+new_assignment6 = Assignment.create(name: "Report xx on business and sports", deadline: Date.today - 60.days, description: "Report yyy about the impact of soccer in Europe's economy", classroom_id: new_classroom1.id, teacher_id: new_teacher1.id, topic_id: new_topic1.id)
+
+paper1 = Paper.create(title: "Assignment on life and death", student: new_student3, assignment: new_assignment1)
+paper2 = Paper.create(title: "Assignment on back and white", student: new_student2, assignment: new_assignment2)
+paper3 = Paper.create(title: "Assignment on back and white", student: new_student4, assignment: new_assignment2)
+
+paper4 = Paper.create(title: "Assignment on back and white", student: new_student2, assignment: new_assignment3)
+paper5 = Paper.create(title: "Assignment on back and white", student: new_student2, assignment: new_assignment4)
+paper6 = Paper.create(title: "Assignment on back and white", student: new_student2, assignment: new_assignment5)
+paper7 = Paper.create(title: "Assignment on back and white", student: new_student2, assignment: new_assignment6)
+
+new_Evaluation1 = Evaluation.create(readability: 8, referencing: 9, knowledge_of_topic: 7, final_grade: 9, feeback_text: "A nice feedback to have",  paper: paper1)
+new_Evaluation2 = Evaluation.create(readability: 7, referencing: 8, knowledge_of_topic: 7, final_grade: 8, feeback_text: "A super nice feedback to have", paper: paper1)
+new_Evaluation3 = Evaluation.create(readability: 6, referencing: 5, knowledge_of_topic: 5, final_grade: 5, feeback_text: "A really super nice feedback to have", paper: paper2)
+new_Evaluation3 = Evaluation.create(readability: 8, referencing: 9, knowledge_of_topic: 9, final_grade: 9, feeback_text: "A really super nice feedback to have", paper: paper3)
+new_Evaluation1 = Evaluation.create(readability: 2, referencing: 9, knowledge_of_topic: 7, final_grade: 6, feeback_text: "A nice feedback to have",  paper: paper4)
+new_Evaluation2 = Evaluation.create(readability: 7, referencing: 8, knowledge_of_topic: 7, final_grade: 3, feeback_text: "A super nice feedback to have", paper: paper5)
+new_Evaluation3 = Evaluation.create(readability: 6, referencing: 5, knowledge_of_topic: 5, final_grade: 4, feeback_text: "A really super nice feedback to have", paper: paper6)
+new_Evaluation3 = Evaluation.create(readability: 8, referencing: 9, knowledge_of_topic: 9, final_grade: 10, feeback_text: "A really super nice feedback to have", paper: paper7)

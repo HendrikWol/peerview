@@ -43,6 +43,18 @@ class EvaluationsController < ApplicationController
     redirect_to evaluations_path
   end
 
+    def student_dashboard
+    @chart_input = []
+    @evaluations = Evaluation.all
+    @evaluations.each do |evaluation|
+      instance_array = [evaluation.paper.assignment.deadline.strftime("%b %d, %Y"), evaluation.final_grade]
+      @chart_input << instance_array
+    end
+    @chart_input
+
+    # @chart_input = Evaluation.pluck(:readability, :final_grade)
+  end
+
   private
 
   def display_evaluated_paper(all_papers)

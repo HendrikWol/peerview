@@ -18,6 +18,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'carrierwave', '~> 0.11.2'
 gem 'cloudinary'
+gem 'chartkick', '~> 1.2.4'
+
+gem 'groupdate',  github: 'ankane/groupdate'
+gem 'active_median'
 
 group :development, :test do
   gem "better_errors"
