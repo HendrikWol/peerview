@@ -10,6 +10,7 @@ class AssignmentsController < ApplicationController
   def show
     @current_student = current_student
 
+
   end
 
   def new
@@ -26,7 +27,7 @@ class AssignmentsController < ApplicationController
     # @assignment.student_id = current_student
 
     if @assignment.save
-      redirect_to teacher_assignments_path(@teacher)
+      redirect_to teacher_path(@teacher)
     else
       render :new
     end

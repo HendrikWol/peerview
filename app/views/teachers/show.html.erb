@@ -24,7 +24,7 @@
         <div class="col-xs-12 col-md-6">
           <div class="profile-card text-center">
             <div class="card-header">
-              <h4><strong>Classes:</strong></h4>
+              <h4><strong>My classes</strong></h4>
               </div>
               <div class="card-body">
                <% classroom_array = [] %>
@@ -37,14 +37,12 @@
                <% classroom_array.uniq.each do |p| %>
 
                 <br>
-                <%= p[:name] %>
+                <h4><%= p[:name] %> | <%= link_to 'See Details', classroom_path(p[:id]) %></h4>
                 <br>
-                <%= link_to 'SHOW STUDENTS', classroom_path(p[:id]),  class: "btn btn-blue-1" %>
-                <br>
-
               <% end %>
               <hr>
-               <h4 class="text-center">Create a new assignment:</h4> <%= link_to "NEW ASSIGNMENT", new_teacher_assignment_path(@teacher), class: "btn btn-blue-1" %>
+               <h4 class="text-center">Create a new assignment:</h4>
+               <%= link_to "NEW ASSIGNMENT", new_teacher_assignment_path(@teacher), class: "btn btn-blue-1" %>
             </div>
           </div>
         </div>

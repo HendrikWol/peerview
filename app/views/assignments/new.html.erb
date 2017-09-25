@@ -1,16 +1,22 @@
 <div class="container">
-<h1>Create new assignment</h1>
-  <div class="row" style="margin-right: 200px;">
-      <%= simple_form_for([@teacher, @assignment]) do |f| %>
-      <%= f.input :topic_id, label: 'Topic' , :collection => Topic.order(:name), :prompt => 'Choose a topic'  %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :specs  %>
-      <%= f.input :deadline  %>
-      <%= f.input :classroom_id, collection: Classroom.all %>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="form-login">
 
-      <%= f.button :submit, class: 'btn btn-success' %>
-      <% end %>
+        <h2>Create new assignment</h2>
+        <%= simple_form_for([@teacher, @assignment]) do |f| %>
+        <%= f.input :topic_id, label: 'Topic' , :collection => Topic.order(:name), :prompt => 'Choose a topic'  %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :specs  %>
+        <%= f.input :deadline  %>
+        <%= f.input :classroom_id, collection: Classroom.all %>
+        <%= f.button :submit, class: 'btn btn-blue-1' %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
 </div>
-</div>
+
 

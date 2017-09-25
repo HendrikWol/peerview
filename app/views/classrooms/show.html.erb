@@ -6,14 +6,25 @@
     <br>
     <% @classroom.students.each do |student| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
-    <div class="card-classroom">
-    <p class="element"><%= image_tag student.photo, class: 'avatar-small' %></p>
-    <p class="other-element1"><%= student.first_name %> <%= student.last_name %></p>
-    <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'btn btn-blue-1' %></p>
-    </div>
+      <div class="card-classroom">
+        <p class="element"><%= image_tag student.photo, class: 'avatar-small' %></p>
+        <p class="other-element1"><%= student.first_name %> <%= student.last_name %></p>
+        <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'btn btn-blue-1' %></p>
+      </div>
     </div>
     <% end %>
-
-
+  </div>
+  <hr>
+  <div class="row">
+    <h4><strong>Assignments overview</strong></h4>
+    <% @classroom.assignments.each do |assignment| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card-assignment">
+        <p><%= link_to assignment.name, assignment_path %></p>
+        <p>Deadline: <%= assignment.deadline %></p>
+        <p><%= assignment.teacher.first_name %> <%= assignment.teacher.last_name %></p>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
