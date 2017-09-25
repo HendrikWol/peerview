@@ -13,7 +13,7 @@
 </head>
 <body>
   <%= render 'shared/navbar' %>
-  <% unless action_name == "home" || action_name == "sign_up" %>
+  <% unless action_name == "home" || action_name == "blog_post" || action_name == "sign_up" %>
   <%= render 'shared/vnavbar' %>
     <% end %>
   <%= render 'shared/flashes' %>
