@@ -1,4 +1,4 @@
-
+<% if student_signed_in? && current_student.id == @student.id %>
 <div class="card-container">
   <div class="row">
   <br>
@@ -76,3 +76,31 @@
   <br>
 
 </div>
+
+<% else %>
+<div class="card-container">
+  <div class="row">
+    <br>
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="profile-card text-center">
+        <div class="card-header">
+          <h4><strong>Student profile</h4>
+        </div>
+        <div class="card-body">
+
+          <h4><%= @student.first_name %> <%= @student.last_name %></h4>
+          <br>
+          <div class="banner-image">
+            <%= image_tag @student.photo, class:"banner-image avatar"%>
+            <h5 ><%= @student.description %></h5>
+            <h5><%= @student.classroom.name %></h5>
+            <h5 class="weak"><%= @student.city %></h5>
+            <h5 class="weak"><%= @student.date_of_birth %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
