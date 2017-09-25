@@ -35,8 +35,55 @@
         <%= link_to "Download", @evaluated_paper.attachment.url, target: '_blank', class: 'button-peer' %>
         <%= link_to "EVALUATE", new_paper_evaluation_path(@evaluated_paper), class: 'button-peer-white' %>
         <br>
+        <br>
       <%end%>
     <%end%>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+
+  <br>
+
+</div>
+
+<div class="card-container">
+  <div class="row">
+  <br>
+    <div class="col-xs-12 col-md-6">
+        <div class="profile-card text-center">
+          <div class="card-header">
+            <h4><strong>Finished evaluations:</strong></h4>
+          </div>
+          <div class="card-body">
+
+          <% @evaluations.each do |evaluation| %>
+          <p><%= evaluation.paper.assignment.name %></p>
+          <p><%= evaluation.paper.student.first_name %></p>
+          <br>
+          <p><%= link_to "SHOW", evaluation_path(evaluation), class: 'button-peer-white' %></p>
+          <br>
+          <% end %>
+
+
+          <br>
+          <br>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 col-md-6">
+        <div class="profile-card text-center">
+          <div class="card-header">
+            <h4><strong>XXX:</strong></h4>
+          </div>
+          <div class="card-body">
+
 
 
 
@@ -71,47 +118,6 @@
 </div>
 
 
-
-
-
-
-
-
-
-<div class="container">
-  <div class="row">
-    <h2>Evaluations Dashboard</h2>
-
-
-    <h4>All submitted papers </h4>
-    <%  @student_papers.each do |paper| %>
-    <%= paper.title %>
-    <%end%>
-
-    <% if @evaluated_paper %>
-      <% if @evaluated_paper.assignment.deadline < Date.today %>
-        <div>
-          <p>The assignment you have to review will displayed on <%= @evaluated_paper.assignment.deadline %></p>
-        </div>
-      <%else%>
-        <h2>You will evaluate</h2>
-        <!-- TODO: create a nice button for the download -->
-        <%= link_to "Download", @evaluated_paper.attachment.url, target: '_blank' %>
-        <%= @evaluated_paper.title %>
-      <%end%>
-    <%end%>
-
-
-
-
-    <br>
-    <br>
-
-
-    <h4>Evaluated assignments: </h4>
-
-  </div>
-</div>
 
 
 

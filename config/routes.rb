@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :evaluations, only: [:create, :new]
   end
 
-  resources :evaluations, only: [:show, :index]
+  resources :evaluations, only: [:index, :show]
 
   resources :programs
   resources :students
