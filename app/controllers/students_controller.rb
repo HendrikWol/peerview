@@ -11,7 +11,6 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def show
     @student = Student.find(params[:id])
-    @classroom = Classroom.find(params[:id])
   end
 
   def new
