@@ -25,8 +25,8 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
     @assignment.teacher = @teacher
     # @assignment.student_id = current_student
-
     if @assignment.save
+      EvaluationProcessService.new(@assignment).call
       redirect_to teacher_path(@teacher)
     else
       render :new

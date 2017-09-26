@@ -4,7 +4,7 @@ class Assignment < ApplicationRecord
   belongs_to :teacher
   belongs_to :topic, optional: true
   has_many :papers
-
+  has_many :ev_process, foreign_key: 'assignment_id' , class_name: 'EvaluationProcess'
   validates :name, presence: true
   validates :deadline, presence: true
   validates :description, presence: true, length: { minimum: 20 }
