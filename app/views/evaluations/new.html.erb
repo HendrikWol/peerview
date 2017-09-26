@@ -2,13 +2,15 @@
 <h1>Evaluation: </h1>
   <div class="row" style="margin-right: 200px;">
       <%= simple_form_for([@paper, @evaluation]) do |f| %>
-      <%= f.input :readability, :collection => 1..10 %>
-      <%= f.input :referencing, :collection => 1..10 %>
-      <%= f.input :knowledge_of_topic, :collection => 1..10 %>
+      <%= f.input :readability, :as => :radio_buttons, :collection => 1..10, class: "radio"  %>
+      <%= f.input :referencing, :as => :radio_buttons, :collection => 1..10 %>
+      <%= f.input :knowledge_of_topic, :as => :radio_buttons, :collection => 1..10 %>
       <%= f.input :feeback_text, :input_html => {:rows => 5} %>
-      <%= f.input :final_grade, :collection => 1..10 %>
+      <%= f.input :final_grade, :as => :radio_buttons, :collection => 1..10 %>
+
 
       <%= f.button :submit, class: 'btn btn-success' %>
       <% end %>
+
 </div>
 </div>
