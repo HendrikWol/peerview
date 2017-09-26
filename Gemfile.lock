@@ -70,6 +70,8 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    chart-js-rails (0.1.4)
+      railties (> 3.1)
     chartkick (1.2.5)
     cloudinary (1.8.1)
       aws_cf_signer
@@ -226,12 +228,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_median
+  active_median (~> 0.1.0)
   autoprefixer-rails
   better_errors
   binding_of_caller
   bootstrap-sass
   carrierwave (~> 0.11.2)
+  chart-js-rails
   chartkick (~> 1.2.4)
   cloudinary
   devise
