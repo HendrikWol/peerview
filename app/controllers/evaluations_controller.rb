@@ -57,6 +57,7 @@ class EvaluationsController < ApplicationController
 
 
 
+
   #   total_final = 0
   #   number_final = 0
   #   array_of_averages = []
