@@ -36,14 +36,13 @@ Rails.application.routes.draw do
 
  resources :topics
 
- get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
-
- get 'blog_post', to: 'pages#blog_post', as: 'blog_post'
 
  get 'student_dashboard', to: 'evaluations#student_dashboard', as: 'student_dashboard'
 
 
   get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
   get 'blog_post', to: 'pages#blog_post', as: 'blog_post'
+
+  get 'students/:id/my_classroom', to: 'students#my_classroom', as: 'my_classroom'
 
 end

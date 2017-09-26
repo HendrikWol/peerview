@@ -1,0 +1,25 @@
+<div class="card-container">
+  <br>
+  <div class="profile-card text-center">
+    <div class="card-header">
+      <h4><strong>Your Classroom:</strong></h4>
+    </div>
+    <div class="card-body">
+      <h4><strong> <%= @student.classroom.name %></strong></h4>
+      <br>
+
+      <div class="row">
+        <% @classroom.students.each do |student| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card-classroom">
+            <p class="element"><%= image_tag student.photo, class: 'avatar-small' %></p>
+            <p class="other-element1"><%= student.first_name %> <%= student.last_name %></p>
+            <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'btn btn-blue-1' %></p>
+          </div>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
