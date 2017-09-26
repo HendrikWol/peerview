@@ -5,12 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Paper.destroy_all
-Assignment.destroy_all
-Topic.destroy_all
-Student.destroy_all
-Classroom.destroy_all
-Teacher.destroy_all
+
 
 puts "Destroying seeds..."
 Paper.destroy_all
@@ -96,3 +91,4 @@ new_paper16 = Paper.create(title: "Liam report 2", assignment: new_assignment6, 
 new_paper17 = Paper.create(title: "Mick report", assignment: new_assignment5, student: new_student9, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417486/Mick_report_a2bgdj.docx" )
 new_paper18 = Paper.create(title: "Mick report 2", assignment: new_assignment6, student: new_student9, attachment: "https://cloudinary.com/console/media_library#/dialog/raw/upload/Mick_2_report_lshcs5.docx"  )
 puts "Status of creating seeds: complete"
+
