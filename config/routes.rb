@@ -26,4 +26,6 @@ Rails.application.routes.draw do
 
   get 'sign_up', to: 'pages#sign_up', as: 'sign_up'
   get 'blog_post', to: 'pages#blog_post', as: 'blog_post'
+
+  get 'students/:id/my_classroom', to: 'students#my_classroom', as: 'my_classroom'
 end
