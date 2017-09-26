@@ -1,12 +1,18 @@
- <h2> This is a test page for graphs </h2>
+ <h2> Graphs XXX</h2>
   <div class="container">
-  <h5>This is a test for Linecharts</h5>
 
 
 <div class="row">
   <div class="col-xs-6">
-    <h3>Test Graph Title</h3>
+
+    <h3>Student Grades Evolution</h3>
     <%= line_chart @chart_input, xtitle: "Final grade", ytitle: "Date" %>
+
+    <h3>Student Relative performance</h3>
+    <%= bar_chart @bar_chart_input, xtitle: "Percentile", ytitle: "Cognitive dimension" %>
+
+
+
   </div>
 </div>
 
