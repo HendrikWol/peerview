@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925103826) do
+ActiveRecord::Schema.define(version: 20170926123544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 20170925103826) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+  end
+
+  create_table "evaluation_processes", force: :cascade do |t|
+    t.bigint "assignment_id"
+    t.integer "evaluated_id"
+    t.integer "evaluator_id"
+    t.index ["assignment_id"], name: "index_evaluation_processes_on_assignment_id"
+    t.index ["evaluated_id"], name: "index_evaluation_processes_on_evaluated_id"
+    t.index ["evaluator_id"], name: "index_evaluation_processes_on_evaluator_id"
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -150,6 +159,7 @@ ActiveRecord::Schema.define(version: 20170925103826) do
   add_foreign_key "assignments", "evaluations"
   add_foreign_key "assignments", "teachers"
   add_foreign_key "assignments", "topics"
+  add_foreign_key "evaluation_processes", "assignments"
   add_foreign_key "evaluations", "papers"
   add_foreign_key "papers", "assignments"
   add_foreign_key "papers", "evaluations"

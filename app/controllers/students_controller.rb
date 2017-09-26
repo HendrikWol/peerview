@@ -12,6 +12,7 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def show
     @student = Student.find(params[:id])
+    @papers_to_evaluate = GetEvaluatePapersService.new.call(current_student)
   end
 
   def new

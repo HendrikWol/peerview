@@ -10,6 +10,7 @@ class EvaluationsController < ApplicationController
       @student_papers << paper
     end
     @evaluated_paper = display_evaluated_paper(@papers)
+    @papers_to_evaluate = GetEvaluatePapersService.new.call(current_student)
   end
 
   def show
@@ -137,4 +138,6 @@ class EvaluationsController < ApplicationController
   def set_paper
     @paper = Paper.find(params[:paper_id])
   end
+
+
 end
