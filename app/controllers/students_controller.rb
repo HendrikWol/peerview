@@ -44,6 +44,7 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
   end
 
 
+
   private
   def set_student
     @student = Student.find(params[:id])
