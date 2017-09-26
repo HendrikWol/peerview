@@ -9,10 +9,10 @@
           <li class="dropdown-submenu">
             <a tabindex="-1" href="#"><i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
-              <li><a tabindex="-1" href="#">My Profile</a></li>
-              <li><a href="#">Edit Profile</a></li>
-              <li><a href="#">My Evaluations</a></li>
-              <li><a href="#">My Classroom</a></li>
+              <li><%#= link_to 'Show Profile', student_path %></li>
+              <li><%#= link_to 'Edit Profile', edit_student_path %></li>
+              <li><%#= link_to 'My Evaluations' %></li>
+              <li><%#= link_to 'My Classroom', my_classroom_path %></li>
             </ul>
           </li>
 
@@ -90,4 +90,3 @@
 </body>
 </html>
 -->
-

@@ -5,12 +5,14 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
     @students = Student.all
   end
 
-  # def my_profile
-  #   @profile = current_user.profile
-  # end
+  def my_classroom
+    @student = current_student
+    @classroom = current_student.classroom
+  end
 
   def show
     @student = Student.find(params[:id])
+    @papers_to_evaluate = GetEvaluatePapersService.new.call(current_student)
   end
 
   def new
