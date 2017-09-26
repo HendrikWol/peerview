@@ -25,6 +25,8 @@ class EvaluationsController < ApplicationController
     @evaluation = Evaluation.new(evaluation_params)
     @evaluation.paper = @paper
     if @evaluation.save
+      @paper.evaluation = @evaluation
+      @paper.save
       redirect_to evaluations_path
     else
       render :new

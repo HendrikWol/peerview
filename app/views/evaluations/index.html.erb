@@ -20,10 +20,17 @@
             <h4><strong>Your evaluations:</strong></h4>
           </div>
           <div class="card-body">
+
           <% @papers_to_evaluate.each do |paper| %>
-          <h1>HELLO <%= paper.assignment.id %></h1>
-           <%= link_to "Download", paper.attachment.url, target: '_blank', class: 'button-peer' %>
+            <% unless paper.evaluation %>
+            <h1>HELLO <%= paper.id %></h1>
+             <%= link_to "Download", paper.attachment.url, target: '_blank', class: 'button-peer' %>
+             <%= link_to "EVALUATE", new_paper_evaluation_path(paper), class: 'button-peer-white' %>
+            <% end %>
         <% end %>
+
+
+
             <% if @evaluated_paper %>
       <% if @evaluated_paper.assignment.deadline < Date.today %>
         <div>
