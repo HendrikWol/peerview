@@ -7,15 +7,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // width: 100%;
-  // position: fixed;
 }
 
 
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #ccc5c5;
+  font-weight: 200;
+}
+
+
+a:-webkit-any-link {
+    text-decoration: none;
+    cursor: auto;
 }
 
 /* User Avatar */
