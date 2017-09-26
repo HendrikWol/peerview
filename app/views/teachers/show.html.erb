@@ -1,0 +1,79 @@
+
+
+<% if teacher_signed_in? && current_teacher.id == @teacher.id %>
+<div class="card-container">
+  <div class="row">
+    <br>
+    <div class="col-xs-12 col-md-6">
+      <div class="profile-card text-center">
+        <div class="card-header">
+          <h4><strong>Welcome to your dashboard, <%= @teacher.first_name %>!</strong></h4>
+          </div>
+          <div class="card-body">
+            <h4><%= @teacher.first_name %> <%= @teacher.last_name %></h4>
+            <br>
+            <div class="banner-image">
+              <%= image_tag @teacher.photo, class:"banner-image avatar"%>
+              <h5 ><%= @teacher.description %></h5>
+              <h5 class="weak"><%= @teacher.city %></h5>
+              <h5 class="weak"><%= @teacher.email %></h5>
+              <%= link_to 'EDIT PROFILE', edit_teacher_path, class: 'btn btn-blue-1' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="col-xs-12 col-md-6">
+          <div class="profile-card text-center">
+            <div class="card-header">
+              <h4><strong>My classes</strong></h4>
+              </div>
+              <div class="card-body">
+               <% classroom_array = [] %>
+               <% @teacher.topics.each do |topic| %>
+               <% topic.assignments.each do |assignment| %>
+               <% classroom_array << {id:assignment.classroom.id, name: assignment.classroom.name } %>
+               <% end %>
+               <% end %>
+               <br>
+               <% classroom_array.uniq.each do |p| %>
+
+                <br>
+                <h4><%= p[:name] %> | <%= link_to 'See Details', classroom_path(p[:id]) %></h4>
+                <br>
+              <% end %>
+              <hr>
+               <h4 class="text-center">Create a new assignment:</h4>
+               <%= link_to "NEW ASSIGNMENT", new_teacher_assignment_path(@teacher), class: "btn btn-blue-1" %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<% else %>
+<div class="card-container">
+  <div class="row">
+    <br>
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="profile-card text-center">
+        <div class="card-header">
+          <h4>Teacher profile</h4>
+          </div>
+          <div class="card-body">
+            <h4><%= @teacher.first_name %> <%= @teacher.last_name %></h4>
+            <br>
+            <div class="banner-image">
+              <%= image_tag @teacher.photo, class:"banner-image avatar"%>
+              <h5 ><%= @teacher.description %></h5>
+              <h5 class="weak"><%= @teacher.city %></h5>
+              <h5 class="weak"><%= @teacher.email %></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+<% end %>
+

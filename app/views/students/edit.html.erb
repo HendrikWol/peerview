@@ -1,0 +1,36 @@
+
+<% if student_signed_in? && current_student.id == @student.id %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-login">
+      <div class="text-center">
+      <h2>Edit your profile</h2>
+      </div>
+      <br>
+      <br>
+      <div class="student_input">
+      <%= simple_form_for(@student) do |f| %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <br>
+      <br>
+      <%= f.input :email %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name  %>
+      <%= f.input :description %>
+      <%= f.input :date_of_birth, as: :date %>
+      <%= f.input :city %>
+      <%= f.input :classroom_id, collection: Classroom.all %>
+      <%= f.button :submit, class: "btn btn-blue-1" %>
+      <%= link_to "Change password", edit_student_registration_path, class: "btn btn-red" %>
+      <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% else %>
+<%= "You cannot edit the profile of your colleague" %>
+<% end %>
+

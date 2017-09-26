@@ -1,0 +1,18 @@
+
+<% if teacher_signed_in? && current_teacher.id == @teacher.id %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-login">
+        <h2>Edit teacher profile</h2>
+        <%= render 'form' %>
+        <%= link_to 'Change password', edit_teacher_registration_path, class: 'btn btn-red' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% else %>
+<%= "You cannot edit other teacher's profile" %>
+<% end %>
+
