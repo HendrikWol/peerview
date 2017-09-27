@@ -1,8 +1,8 @@
 class EvaluationsController < ApplicationController
  before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
  before_action :set_paper, only: [:new, :create]
-  def index
-    @evaluations = Evaluation.all
+ def index
+  @evaluations = Evaluation.all
     # @assignments = Assignment.all
     @papers = Paper.all
     @student_papers = []
@@ -42,67 +42,19 @@ class EvaluationsController < ApplicationController
     redirect_to evaluations_path
   end
 
-    def student_dashboard
-    @chart_input = []
-    @evaluations = Evaluation.all
-    @evaluations.each do |evaluation|
-      instance_array = [evaluation.paper.assignment.deadline.strftime("%b %d, %Y"), evaluation.final_grade]
-      @chart_input << instance_array
+    private
+
+    def set_evaluation
+      @evaluation = Evaluation.find(params[:id])
     end
-    @chart_input
 
+    def evaluation_params
+      params.require(:evaluation).permit(:readability, :referencing, :knowledge_of_topic, :final_grade, :feeback_text, :assignment_id)
+    end
 
-
-    total_final = 0
-    number_final = 0
-    array_of_averages = []
-    current_student.classroom.students.each do |student|
-      student.papers.each do |paper|
-        total_final = total_final + paper.evaluation.final_grade
-        number_final = number_final + 1
-      end
-    student_average_total_grade = total_final / number_final
-    array_of_averages << student_average_total_grade
-  end
-
-  array_of_averages.sort!
-    total_final = 0
-    number_final = 0
-     current_student.papers.each do |paper|
-
-    total_final = total_final + paper.evaluation.final_grade
-        number_final = number_final + 1
-      end
-      current_student_average = total_final / number_final
-
-  overall_ranking =  1 + array_of_averages.index(current_student_average)
-
-  overall_percentile = 1 - overall_ranking / array_of_averages.length
-
-    readability_percentile = 1 - readability_ranking / classroom_size
-    referencing_percentile = 1 - referencing_ranking / classroom_size
-    knowledge_percentile = 1 - knowledge_ranking / classroom_size
-
-
-    @bar_chart_input = [overall_array, readability_array, referencing_array, knowledge_array]
-
-    # @chart_input = Evaluation.pluck(:readability, :final_grade)
-  end
-
-  private
-
-
-  def set_evaluation
-    @evaluation = Evaluation.find(params[:id])
-  end
-
-  def evaluation_params
-    params.require(:evaluation).permit(:readability, :referencing, :knowledge_of_topic, :final_grade, :feeback_text, :assignment_id)
-  end
-
-  def set_paper
-    @paper = Paper.find(params[:paper_id])
-  end
+    def set_paper
+      @paper = Paper.find(params[:paper_id])
+    end
 
 
 end

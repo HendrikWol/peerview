@@ -21,7 +21,7 @@ gem 'cloudinary'
 gem 'chartkick', '~> 1.2.4'
 
 gem 'groupdate',  github: 'ankane/groupdate'
-gem 'active_median'
+gem 'active_median', '~> 0.1.0'
 
 group :development, :test do
   gem "better_errors"
