@@ -8,9 +8,9 @@
 
 
 puts "Destroying seeds..."
+Evaluation.destroy_all
 Paper.destroy_all
 Assignment.destroy_all
-Evaluation.destroy_all
 Topic.destroy_all
 Student.destroy_all
 Classroom.destroy_all
