@@ -43,19 +43,20 @@
     redirect_to evaluations_path
   end
 
-    private
 
-    def set_evaluation
-      @evaluation = Evaluation.find(params[:id])
-    end
+  private
 
-    def evaluation_params
-      params.require(:evaluation).permit(:readability, :referencing, :knowledge_of_topic, :final_grade, :feeback_text, :assignment_id)
-    end
+  def set_evaluation
+    @evaluation = Evaluation.find(params[:id])
+  end
 
-    def set_paper
-      @paper = Paper.find(params[:paper_id])
-    end
+  def evaluation_params
+    params.require(:evaluation).permit(:readability, :referencing, :knowledge_of_topic, :final_grade, :feeback_text, :assignment_id)
+  end
+
+  def set_paper
+    @paper = Paper.find(params[:paper_id])
+  end
 
 
 end

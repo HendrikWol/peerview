@@ -27,6 +27,7 @@
       </div>
 
 
+
         <div class="col-xs-12 col-md-6">
           <div class="profile-card text-center">
             <div class="card-header">
@@ -55,6 +56,22 @@
             </div>
           </div>
         </div>
+
+
+        <div class="card-container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+        <h3>My students</h3>
+        <%= bar_chart @students_averages_sorted, xtitle: "Student name", ytitle: "Graph" %>
+        </div>
+      <div class="col-xs-12 col-md-6">
+            <h3>Class Performance by assignment</h3>
+             <%= bar_chart @assignment_averages_sorted, xtitle: "Student name", ytitle: "Graph" %>
+      </div>
+      </div>
+    </div>
+
+
       </div>
   </div>
 <% else %>
@@ -80,6 +97,10 @@
       </div>
       </div>
     </div>
+
+
+
+
 
 <% end %>
 
