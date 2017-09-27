@@ -11,14 +11,15 @@
         <br>
         <h5><strong>Teacher name: </strong><%= @assignment.teacher.first_name %>
           <%= @assignment.teacher.last_name %></h5>
+          <h5><strong>Classroom: </strong><%= @assignment.classroom.name %></h5>
           <h5><strong>Topic: </strong><%= @assignment.topic.name %></h5>
           <h5><strong>Assignment name: </strong><%= @assignment.name %></h5>
           <h5><strong>Description: </strong><%= @assignment.description %></h5>
           <h5><strong>Specifications: </strong><%= @assignment.specs %></h5>
           <h5><strong>Deadline: </strong><%= @assignment.deadline %></h5>
-          <h5><strong>Status: </strong><%= @assignment.status %></h5>
+          <!-- <h5><strong>Status: </strong><%= @assignment.status %></h5> -->
           <br>
-          <h6><%= link_to 'Upload Your Assignment',  new_assignment_paper_path(@assignment),  class: "btn btn-blue-1" %></h6>
+          <h6><%= link_to 'Upload Your Assignment',  new_assignment_paper_path(@assignment),  class: "button-peer-classroom" %></h6>
 
 
           </div>
@@ -28,14 +29,14 @@
       <div class="col-xs-12 col-md-6">
         <div class="profile-card">
           <div class="card-header">
-            <h2>Your submitted paper:</h2>
+            <h2>Currently submitted paper:</h2>
             </div>
             <div class="card-body">
 
 
             <% @assignment.papers.each do |file| %>
 
-            <h5><%= file.student.first_name  %> <%= file.student.last_name  %> - <%= link_to "SHOW",file.attachment.url, target: '_blank' %> </h5>
+            <h5><%= file.student.first_name  %> <%= file.student.last_name  %> | <%= file.title %> | - <%= link_to "SHOW",file.attachment.url, target: '_blank' %> </h5>
             <% end %>
 
           </div>
@@ -51,15 +52,13 @@
         <br>
         <h5><strong>Teacher name: </strong><%= @assignment.teacher.first_name %>
           <%= @assignment.teacher.last_name %></h5>
+          <h5><strong>Classroom: </strong><%= @assignment.classroom.name %></h5>
           <h5><strong>Topic: </strong><%= @assignment.topic.name %></h5>
           <h5><strong>Assignment name: </strong><%= @assignment.name %></h5>
           <h5><strong>Description: </strong><%= @assignment.description %></h5>
           <h5><strong>Specifications: </strong><%= @assignment.specs %></h5>
           <h5><strong>Deadline: </strong><%= @assignment.deadline %></h5>
-          <h5><strong>Status: </strong><%= @assignment.status %></h5>
           <br>
-
-
 
           </div>
         </div>
@@ -75,7 +74,7 @@
 
             <% @assignment.papers.each do |file| %>
 
-            <h5><%= file.student.first_name  %> <%= file.student.last_name  %> - <%= link_to "SHOW",file.attachment.url, target: '_blank' %> </h5>
+            <h5><%= file.student.first_name  %> <%= file.student.last_name  %> | <%= file.title %> | - <%= link_to "SHOW",file.attachment.url, target: '_blank' %> </h5>
             <% end %>
 
           </div>
