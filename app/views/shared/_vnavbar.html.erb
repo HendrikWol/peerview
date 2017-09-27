@@ -10,9 +10,8 @@
             <a tabindex="-1" href="#"><i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
               <li><%= link_to 'Show Profile', student_path(current_student) %></li>
-              <li><%= link_to 'Edit Profile', edit_student_path %></li>
-              <li><%= link_to 'My Evaluations' %></li>
-              <li><%= link_to 'My Classroom', my_classroom_path %></li>
+              <li><%= link_to 'Edit Profile', edit_student_path(current_student) %><li>
+              <li><%= link_to 'My Classroom', my_classroom_path(current_student) %></li>
             </ul>
           </li>
 
@@ -20,7 +19,7 @@
             <a tabindex="0" href="#"><i class="fa fa-tasks fa-2x" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
 
-              <li><a tabindex="-1" href="#">Assignments overview</a></li>
+              <li><%= link_to 'My Evaluations', evaluations_path %></li>
               <li><a href="#">Evaluations overview</a></li>
               <li><a href="#">To Do Evaluations</a></li>
             </ul>
@@ -39,54 +38,4 @@
       </div>
     </div>
   <% end %>
-<!-- <!DOCTYPE html>
-<html>
-<body>
 
-<ul>
-  <nav class="navigation">
-  <ul class="mainmenu">
-     <li><a href="">Students</a>
-      <ul class="submenu">
-        <li><a href="">Messi</a></li>
-        <li><a href="">Messi</a></li>
-        <li><a href="">Messi</a></li>
-        <li><a href="">Messi</a></li>
-        <li><a href="">Messi</a></li>
-        <li><a href="">Messi</a></li>
-        <li><a href="">Messi</a></li>
-        <li><a href="">Messi</a></li>
-        <li><a href="">Messi</a></li>
-      </ul>
-    </li>
-     <li><a href="">Assignments</a>
-      <ul class="submenu">
-        <li><a href="">Play football</a></li>
-        <li><a href="">Play football</a></li>
-        <li><a href="">Play football</a></li>
-        <li><a href="">Play football</a></li>
-        <li><a href="">Play football</a></li>
-        <li><a href="">Play football</a></li>
-        <li><a href="">Play football</a></li>
-        <li><a href="">Play football</a></li>
-        <li><a href="">Play football</a></li>
-      </ul>
-    </li>    <li><a href="">Secret feature</a>
-      <ul class="submenu">
-        <li><a href="">Tops</a></li>
-        <li><a href="">Bottoms</a></li>
-        <li><a href="">Footwear</a></li>
-        <li><a href="">Tops</a></li>
-        <li><a href="">Bottoms</a></li>
-        <li><a href="">Footwear</a></li>
-        <li><a href="">Tops</a></li>
-        <li><a href="">Bottoms</a></li>
-        <li><a href="">Footwear</a></li>
-      </ul>
-    </li>
-
-  </ul>
-</ul>
-</body>
-</html>
--->
