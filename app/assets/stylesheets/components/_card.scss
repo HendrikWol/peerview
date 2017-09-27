@@ -109,4 +109,14 @@
   padding: 20px;
 }
 
+.radio {
+  display: inline-flex;
+  padding: 9px;
+}
+
+input[type="radio"] { //select all input type = "radio"
+    height: 17px;  //change these to get correct size
+    width: 25px;
+}
+
 

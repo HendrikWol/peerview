@@ -21,6 +21,7 @@ class StudentsController < ApplicationController
     student_papers = Paper.where(student_id: current_student.id).where.not(evaluation_id: nil)
     @student_grades_history = []
     student_papers.each do |paper|
+
       instance_array = [paper.assignment.deadline, paper.evaluation.final_grade]
       @student_grades_history << instance_array
     end
@@ -66,10 +67,6 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
-
-
-
-  private
   def set_student
     @student = Student.find(params[:id])
   end
