@@ -1,8 +1,8 @@
 class EvaluationsController < ApplicationController
  before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
  before_action :set_paper, only: [:new, :create]
-  def index
-    @evaluations = Evaluation.all
+ def index
+  @evaluations = Evaluation.all
     # @assignments = Assignment.all
     @papers = Paper.all
     @student_papers = []
@@ -46,14 +46,51 @@ class EvaluationsController < ApplicationController
     redirect_to evaluations_path
   end
 
-    def student_dashboard
+  def student_dashboard
     @chart_input = []
     @evaluations = Evaluation.all
+    @assignments = Assignment.all
+    @papers = Paper.all
     @evaluations.each do |evaluation|
       instance_array = [evaluation.paper.assignment.deadline.strftime("%b %d, %Y"), evaluation.final_grade]
       @chart_input << instance_array
+
+
+
+
+      student_papers = Paper.where(student_id: current_student.id)
+      last_paper = student_papers.last
+      last_evaluation = last_paper.evaluation
+
+      array_final_grade = ['Final Grade', last_evaluation.final_grade]
+      array_readability = ['Readbility', last_evaluation.readability]
+      array_referencing = ['Referencing', last_evaluation.referencing]
+      array_knowledge = ['Knowledge of Topic', last_evaluation.knowledge_of_topic]
+
+      @paper_chart_input = [array_final_grade, array_readability, array_referencing, array_knowledge]
+
+
+
+
+      # raise
+      # end
+
+      # student_paper = paper_array.select(:evaluation_id)
+
+
+      #   i = 0
+      #   i += 1
+      #   until i == student_paper.length
+      #     grade = student_paper[i].evaluation.readability
+      #   student_grade << grade
+      #     raise
+      #   evaluation_id
+      # end
     end
-    @chart_input
+  end
+
+  @chart_input
+
 
 
 
@@ -105,42 +142,42 @@ class EvaluationsController < ApplicationController
   #   @bar_chart_input = [overall_array, readability_array, referencing_array, knowledge_array]
 
     # @chart_input = Evaluation.pluck(:readability, :final_grade)
-  end
 
-  private
 
-  def display_evaluated_paper(all_papers)
-    student_papers = []
-    all_papers.each do |paper|
-      student_papers << paper
-    end
+    private
 
-    qualified_paper_array = []
-    student_papers.each do |student_paper|
+    def display_evaluated_paper(all_papers)
+      student_papers = []
       all_papers.each do |paper|
-        if (student_paper.assignment.topic == paper.assignment.topic) && (student_paper.assignment.deadline == paper.assignment.deadline )
-          !paper.evaluated && (paper.student_id != current_student.id) ? (qualified_paper_array << paper) : nil
+        student_papers << paper
+      end
+
+      qualified_paper_array = []
+      student_papers.each do |student_paper|
+        all_papers.each do |paper|
+          if (student_paper.assignment.topic == paper.assignment.topic) && (student_paper.assignment.deadline == paper.assignment.deadline )
+            !paper.evaluated && (paper.student_id != current_student.id) ? (qualified_paper_array << paper) : nil
+          end
         end
       end
-    end
 
       display_paper = qualified_paper_array.shuffle.first
       display_paper ? display_paper.evaluated = true : nil
       display_paper
-   end
+    end
 
 
-  def set_evaluation
-    @evaluation = Evaluation.find(params[:id])
-  end
+    def set_evaluation
+      @evaluation = Evaluation.find(params[:id])
+    end
 
-  def evaluation_params
-    params.require(:evaluation).permit(:readability, :referencing, :knowledge_of_topic, :final_grade, :feeback_text, :assignment_id)
-  end
+    def evaluation_params
+      params.require(:evaluation).permit(:readability, :referencing, :knowledge_of_topic, :final_grade, :feeback_text, :assignment_id)
+    end
 
-  def set_paper
-    @paper = Paper.find(params[:paper_id])
-  end
+    def set_paper
+      @paper = Paper.find(params[:paper_id])
+    end
 
 
 end
