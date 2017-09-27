@@ -510,6 +510,16 @@ form {
   }
 }
 
+.navbar-wagon-right .button-peer {
+  padding: 10px 30px;
+  margin-top: 0px;
+  min-width: 0px;
+}
+
+.navbar-wagon-right .button-peer:hover {
+  font-size: 15px;
+}
+
 .button-peer-signup {
   color: white;
   cursor: pointer;
@@ -545,10 +555,15 @@ form {
   color: #48afb8;
   box-shadow: 2px 2px 8px 0 rgba(0,0,0,.1);
   transition: background-color 200ms ease,border 200ms ease,color 200ms ease,box-shadow 200ms ease,padding 200ms ease;
+  transition: 0.2s;
   font-size: 15px;
   font-weight: 400;
   text-align: center;
   letter-spacing: 2px;
+}
+
+.button-peer-white:hover {
+  color: #48afb8;
 }
 
 .overall-content-wrapper-2 {
