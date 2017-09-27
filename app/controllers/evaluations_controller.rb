@@ -5,8 +5,9 @@
   @evaluations = Evaluation.all
     # @assignments = Assignment.all
     @papers = Paper.all
-    @student_papers = []
+    @student_papers = Paper.where(student_id: current_student.id)
     @papers_to_evaluate = GetEvaluatePapersService.new.call(current_student)
+
   end
 
   def show
