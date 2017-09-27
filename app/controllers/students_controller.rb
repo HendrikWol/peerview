@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
     @evaluations = Evaluation.all
     @assignments = Assignment.all
     @papers = Paper.all
-    unless @paper == nil
+    unless @papers == nil
       student_papers = Paper.where(student_id: current_student.id).where.not(evaluation_id: nil)
       @student_grades_history = []
       student_papers.each do |paper|
@@ -29,8 +29,9 @@ class StudentsController < ApplicationController
       @student_grades_history
     end
 
+
     # The below is related to the second graph
-    unless @paper == nil
+    unless @papers == nil
 
       student_papers = Paper.where(student_id: current_student.id).where.not(evaluation_id: nil)
       last_paper = student_papers.last
