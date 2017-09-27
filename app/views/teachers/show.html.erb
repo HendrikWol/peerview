@@ -17,7 +17,10 @@
               <h5 ><%= @teacher.description %></h5>
               <h5 class="weak"><%= @teacher.city %></h5>
               <h5 class="weak"><%= @teacher.email %></h5>
-              <%= link_to 'EDIT PROFILE', edit_teacher_path, class: 'btn btn-blue-1' %>
+              <br>
+              <%= link_to 'EDIT PROFILE', edit_teacher_path, class: 'button-peer' %>
+              <br>
+              <br>
             </div>
           </div>
         </div>
@@ -46,7 +49,10 @@
               <% end %>
               <hr>
                <h4 class="text-center">Create a new assignment:</h4>
-               <%= link_to "NEW ASSIGNMENT", new_teacher_assignment_path(@teacher), class: "btn btn-blue-1" %>
+               <br>
+               <%= link_to "NEW ASSIGNMENT", new_teacher_assignment_path(@teacher), class: "button-peer" %>
+               <br>
+               <br>
             </div>
           </div>
         </div>
