@@ -13,6 +13,34 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
   def show
     @student = Student.find(params[:id])
     @papers_to_evaluate = GetEvaluatePapersService.new.call(current_student)
+    @chart_input = []
+    @evaluations = Evaluation.all
+    @assignments = Assignment.all
+    @papers = Paper.all
+    student_papers = Paper.where(student_id: current_student.id)
+    @student_grades_history = []
+    student_papers.each do |paper|
+    instance_array = [paper.assignment.deadline, paper.evaluation.final_grade]
+    @student_grades_history << instance_array
+    end
+    @student_grades_history
+
+
+    # @evaluations.each do |evaluation|
+    #   instance_array = [evaluation.paper.assignment.deadline.strftime("%b %d, %Y"), evaluation.final_grade]
+    # @chart_input << instance_array
+
+
+      student_papers = Paper.where(student_id: current_student.id)
+      last_paper = student_papers.last
+      last_evaluation = last_paper.evaluation
+
+      array_final_grade = ['Final Grade', last_evaluation.final_grade]
+      array_readability = ['Readbility', last_evaluation.readability]
+      array_referencing = ['Referencing', last_evaluation.referencing]
+      array_knowledge = ['Knowledge of Topic', last_evaluation.knowledge_of_topic]
+
+      @paper_chart_input = [array_final_grade, array_readability, array_referencing, array_knowledge]
   end
 
   def new
@@ -43,6 +71,7 @@ before_action :set_student, only: [:show, :edit, :update, :destroy]
     @student.destroy
     redirect_to students_path
   end
+
 
 
 

@@ -2,7 +2,7 @@
 <% if student_signed_in? && current_student.id == @student.id %>
 <div class="card-container">
   <div class="row">
-  <br>
+    <br>
     <div class="col-xs-12 col-md-6">
       <div class="profile-card text-center">
         <div class="card-header">
@@ -25,20 +25,23 @@
     </div>
 
 
-      <div class="col-xs-12 col-md-6">
-        <div class="profile-card text-center">
-          <div class="card-header">
-            <h4><strong>Progress:</strong></h4>
-          </div>
-          <div class="card-body">
+    <div class="col-xs-12 col-md-6">
+      <div class="profile-card text-center">
+        <div class="card-header">
+          <h4><strong>Progress:</strong></h4>
+        </div>
+        <div class="card-body">
 
+          <h3>Student Grades Evolution</h3>
+          <%= line_chart @student_grades_history, xtitle: "Final grade", ytitle: "Date" %>
+          <hr>
+          <h3>Last paper performance details</h3>
+          <%= bar_chart @paper_chart_input, xtitle: "Evaluation criteria", ytitle: "Grade" %>
+          <br>
 
-            <p>Here we are going to show a small graph</p>
-            <br>
-
-          </div>
         </div>
       </div>
+    </div>
 
   </div>
 
@@ -46,32 +49,19 @@
   <br>
 
   <div class="row">
-  <% hash_options_assignments.each do |k,v| %>
+    <% hash_options_assignments.each do |k,v| %>
     <div class="col-xs-12 col-md-4">
       <div class="profile-card card-inverse <%= k %>">
         <div class="card-header">
           <h4><strong><%= v[:text] %></strong></h4>
-          </div>
-          <div class="card-body">
-          <%= render partial: 'assignment', collection: @student.classroom.assignments, as: :assignment , locals: {operation: v[:operation]}%>
-          </div>
-
-      </div>
-    </div>
-  <% end %>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-md 12">
-      <div class="profile-card">
-        <div class="card-header">
-          <h4><strong>Graphs: </strong></h4>
-          </div>
-          <div class="card-body">
-          <%= image_tag 'graph.png' %>
         </div>
+        <div class="card-body">
+          <%= render partial: 'assignment', collection: @student.classroom.assignments, as: :assignment , locals: {operation: v[:operation]}%>
+        </div>
+
       </div>
     </div>
+    <% end %>
   </div>
 
   <br>
@@ -86,23 +76,23 @@
       <div class="profile-card text-center">
         <div class="card-header">
           <h4><strong>Student profile</h4>
-        </div>
-        <div class="card-body">
+          </div>
+          <div class="card-body">
 
-          <h4><%= @student.first_name %> <%= @student.last_name %></h4>
-          <br>
-          <div class="banner-image">
-            <%= image_tag @student.photo, class:"banner-image avatar"%>
-            <h5 ><%= @student.description %></h5>
-            <h5><%= @student.classroom.name %></h5>
-            <h5 class="weak"><%= @student.city %></h5>
-            <h5 class="weak"><%= @student.date_of_birth %></h5>
+            <h4><%= @student.first_name %> <%= @student.last_name %></h4>
+            <br>
+            <div class="banner-image">
+              <%= image_tag @student.photo, class:"banner-image avatar"%>
+              <h5 ><%= @student.description %></h5>
+              <h5><%= @student.classroom.name %></h5>
+              <h5 class="weak"><%= @student.city %></h5>
+              <h5 class="weak"><%= @student.date_of_birth %></h5>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<% end %>
+  <% end %>
 
