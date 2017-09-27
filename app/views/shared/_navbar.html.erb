@@ -73,9 +73,8 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to "HOW TO", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "BLOG", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "PRICING", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "btn btn-blue" %>
+      <%= link_to "BLOG", blog_post_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "button-peer" %>
     <% end %>
 
   </div>
@@ -88,7 +87,7 @@
         <li><a href="#">How to</a></li>
 
         <li><a href="#">Blog</a></li>
-        <li><a href="#">Pricing</a></li>
+
 
       </ul>
     </div>
@@ -180,9 +179,8 @@ $('.parent').children().click(function () {
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to "HOW TO", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "BLOG", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "PRICING", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "btn btn-blue" %>
+      <%= link_to "BLOG", blog_post_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "button-peer" %>
     <% end %>
 
   </div>
@@ -195,7 +193,6 @@ $('.parent').children().click(function () {
         <li><a href="#">How to</a></li>
 
         <li><a href="#">Blog</a></li>
-        <li><a href="#">Pricing</a></li>
 
       </ul>
     </div>

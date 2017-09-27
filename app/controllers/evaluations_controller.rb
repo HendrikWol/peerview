@@ -6,10 +6,6 @@ class EvaluationsController < ApplicationController
     # @assignments = Assignment.all
     @papers = Paper.all
     @student_papers = []
-    @papers.each do |paper|
-      @student_papers << paper
-    end
-    @evaluated_paper = display_evaluated_paper(@papers)
     @papers_to_evaluate = GetEvaluatePapersService.new.call(current_student)
   end
 
@@ -79,22 +75,9 @@ class EvaluationsController < ApplicationController
       end
       current_student_average = total_final / number_final
 
-
-
   overall_ranking =  1 + array_of_averages.index(current_student_average)
 
-
-
   overall_percentile = 1 - overall_ranking / array_of_averages.length
-
-
-
-
-
-
-
-
-
 
     readability_percentile = 1 - readability_ranking / classroom_size
     referencing_percentile = 1 - referencing_ranking / classroom_size
@@ -107,26 +90,6 @@ class EvaluationsController < ApplicationController
   end
 
   private
-
-  def display_evaluated_paper(all_papers)
-    student_papers = []
-    all_papers.each do |paper|
-      student_papers << paper
-    end
-
-    qualified_paper_array = []
-    student_papers.each do |student_paper|
-      all_papers.each do |paper|
-        if (student_paper.assignment.topic == paper.assignment.topic) && (student_paper.assignment.deadline == paper.assignment.deadline )
-          !paper.evaluated && (paper.student_id != current_student.id) ? (qualified_paper_array << paper) : nil
-        end
-      end
-    end
-
-      display_paper = qualified_paper_array.shuffle.first
-      display_paper ? display_paper.evaluated = true : nil
-      display_paper
-   end
 
 
   def set_evaluation

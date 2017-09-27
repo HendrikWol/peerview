@@ -18,7 +18,10 @@
             <h5><%= @student.classroom.name %></h5>
             <h5 class="weak"><%= @student.city %></h5>
             <h5 class="weak"><%= @student.date_of_birth %></h5>
-            <%= link_to 'EDIT PROFILE', edit_student_path, class: 'btn btn-blue-1' %>
+            <br>
+            <%= link_to 'EDIT PROFILE', edit_student_path, class: 'button-peer-classroom' %>
+            <br>
+            <br>
           </div>
         </div>
       </div>
@@ -61,31 +64,21 @@
   <% end %>
   </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-md 12">
-      <div class="profile-card">
-        <div class="card-header">
-          <h4><strong>Graphs: </strong></h4>
-          </div>
-          <div class="card-body">
-          <%= image_tag 'graph.png' %>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <br>
 
 </div>
 
 <% else %>
+
 <div class="card-container">
   <div class="row">
-    <br>
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
+  <br>
+    <div class="col-xs-12 col-md-6">
       <div class="profile-card text-center">
         <div class="card-header">
-          <h4><strong>Student profile</h4>
+          <h4><strong>Student Profile</strong></h4>
         </div>
         <div class="card-body">
 
@@ -101,8 +94,24 @@
         </div>
       </div>
     </div>
+
+
+      <div class="col-xs-12 col-md-6">
+        <div class="profile-card text-center">
+          <div class="card-header">
+            <h4><strong>Progress:</strong></h4>
+          </div>
+          <div class="card-body">
+
+            <p>Here we are going to show a small graph</p>
+            <br>
+
+          </div>
+        </div>
+      </div>
+
   </div>
-</div>
+   </div>
 
 <% end %>
 

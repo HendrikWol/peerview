@@ -21,35 +21,13 @@
           </div>
           <div class="card-body">
 
-          <% @papers_to_evaluate.each do |paper| %>
+          <% @papers_to_evaluate.try(:each) do |paper| %>
             <% unless paper.evaluation %>
             <h1>HELLO <%= paper.id %></h1>
              <%= link_to "Download", paper.attachment.url, target: '_blank', class: 'button-peer' %>
              <%= link_to "EVALUATE", new_paper_evaluation_path(paper), class: 'button-peer-white' %>
             <% end %>
-        <% end %>
-
-
-
-            <% if @evaluated_paper %>
-      <% if @evaluated_paper.assignment.deadline < Date.today %>
-        <div>
-          <p>The assignment you have to review will displayed on <%= @evaluated_paper.assignment.deadline %></p>
-        </div>
-      <%else%>
-        <h4>You will evaluate</h4>
-        <!-- HERE THE THING  -->
-        <p><%= @evaluated_paper.student.first_name %> <%= @evaluated_paper.student.last_name %></p>
-        <p>Assignment: <%= @evaluated_paper.assignment.name %></p>
-        <p>Topic: <%= @evaluated_paper.assignment.topic.name %></p>
-        <p>Deadline: <%= @evaluated_paper.assignment.deadline %></p>
-        <br>
-        <%= link_to "Download", @evaluated_paper.attachment.url, target: '_blank', class: 'button-peer' %>
-        <%= link_to "EVALUATE", new_paper_evaluation_path(@evaluated_paper), class: 'button-peer-white' %>
-        <br>
-        <br>
-      <%end%>
-    <%end%>
+          <% end %>
           </div>
         </div>
       </div>
