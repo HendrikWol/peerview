@@ -34,14 +34,14 @@
           <h4><strong>Progress:</strong></h4>
         </div>
         <div class="card-body">
-          <% unless @papers == nil  %>
+
           <h3>Student Grades Evolution</h3>
           <%= line_chart @student_grades_history, xtitle: "Final grade", ytitle: "Date" %>
           <hr>
           <h3>Last paper performance details</h3>
           <%= bar_chart @paper_chart_input, xtitle: "Evaluation criteria", ytitle: "Grade" %>
           <br>
-          <% end %>
+
 
         </div>
       </div>
