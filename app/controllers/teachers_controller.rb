@@ -34,7 +34,8 @@ class TeachersController < ApplicationController
   @teacher_evolution_input = []
   teacher_papers2 = []
   @papers.each do |paper|
-    teacher_papers2 << paper if paper.assignment.topic.teacher.id == current_teacher.id && (!paper.evaluation_id.nil?)
+    teacher_papers2 << paper if paper.assignment.topic.teacher.id == current_teacher.id &&(!paper.evaluation_id.nil?)
+
   end
   teacher_papers2.each do |paper|
     @teacher_evolution_input << [paper.assignment.name, paper.evaluation.final_grade]
@@ -49,6 +50,7 @@ class TeachersController < ApplicationController
   @assignment_averages_sorted = assignment_averages.sort do |a, b|
     b[1] <=> a[1]
   end
+
 
 
 
