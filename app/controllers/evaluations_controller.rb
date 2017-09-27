@@ -1,4 +1,4 @@
-class EvaluationsController < ApplicationController
+  class EvaluationsController < ApplicationController
  before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
  before_action :set_paper, only: [:new, :create]
  def index
@@ -10,7 +10,8 @@ class EvaluationsController < ApplicationController
   end
 
   def show
-
+    # evaluator_object = Student.find_by(id: @evaluation.evaluation_processes.evaluator_id)
+    # @evaluator_name = evaluator_object.name
   end
 
   def new
