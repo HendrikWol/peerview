@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
       <h4><strong> <%= @classroom.name %></strong></h4>
-    
+
 
       <div class="row">
       <h4><strong>Students enrolled:</strong></h4>
@@ -15,7 +15,7 @@
       <div class="card-classroom">
         <p class="element"><%= image_tag student.photo, class: 'avatar-small' %></p>
         <p class="other-element1"><%= student.first_name %> <%= student.last_name %></p>
-        <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'btn btn-blue-1' %></p>
+        <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'button-peer-classroom' %></p>
           </div>
         </div>
 
