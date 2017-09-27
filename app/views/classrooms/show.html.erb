@@ -1,33 +1,27 @@
+<div class="card-container">
+  <br>
+  <div class="profile-card text-center">
+    <div class="card-header">
+      <h4><strong>Classroom Overview:</strong></h4>
+    </div>
+    <div class="card-body">
+      <h4><strong> <%= @classroom.name %></strong></h4>
+    
 
-<div class="container">
-  <div class="row">
-    <h1>Classroom Overview</h1>
-    <h4><strong> <%= @classroom.name %></strong></h4>
-    <h5><strong>Students enrolled:</strong></h5>
-    <br>
-    <% @classroom.students.each do |student| %>
+      <div class="row">
+      <h4><strong>Students enrolled:</strong></h4>
+        <% @classroom.students.each do |student| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card-classroom">
         <p class="element"><%= image_tag student.photo, class: 'avatar-small' %></p>
         <p class="other-element1"><%= student.first_name %> <%= student.last_name %></p>
         <p class="other-element2"><%= link_to 'PROFILE', student_path(student), class: 'btn btn-blue-1' %></p>
+          </div>
+        </div>
+
+        <% end %>
       </div>
     </div>
-    <% end %>
-  </div>
-  <hr>
-  <div class="row">
-    <h5><strong>Assignments overview</strong></h5>
-    <% @classroom.assignments.each do |assignment| %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card-assignment text-center">
-        <p><%= assignment.name %></p>
-        <p>Deadline: <%= assignment.deadline%></p>
-        <p><%= assignment.teacher.first_name %> <%= assignment.teacher.last_name %></p>
-        <p><%= link_to 'See details', assignment_path, class: "btn btn-blue-1 text-center" %></p>
-      </div>
-    </div>
-    <% end %>
   </div>
 </div>
 
