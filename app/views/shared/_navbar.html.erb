@@ -66,10 +66,12 @@
       </div>
       <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "HOW PV WORKS", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "HOW PV WORKS", how_it_works_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "BLOG", blog_post_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "button-peer" %>
-      <% end %>
+    <% end %>
+  </div>
     </div>
 
 <!-- Dropdown list appearing on mobile only -->
@@ -161,10 +163,10 @@
         </div>
       </div>
     <% else %>
-  <!-- Login link (when logged out) -->
-    <%= link_to "HOW PV WORKS", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "BLOG", blog_post_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "button-peer" %>
+      <!-- Login link (when logged out) -->
+      <%= link_to "HOW TO", how_it_works_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "BLOG", blog_post_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "button-peer" %>
     <% end %>
   </div>
 

@@ -2,7 +2,17 @@
 .banner {
   background-color: white;
   text-align: center;
-  height: 40vh;
+  height: 60vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-lg {
+  background-color: white;
+  text-align: center;
+  height: 60vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
