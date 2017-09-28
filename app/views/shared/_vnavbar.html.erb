@@ -21,8 +21,6 @@
             <ul class="dropdown-menu">
 
               <li><%= link_to 'My Evaluations', evaluations_path %></li>
-              <li><a href="#">Evaluations overview</a></li>
-              <li><a href="#">To Do Evaluations</a></li>
             </ul>
           </li>
 
@@ -52,7 +50,7 @@
             <ul class="dropdown-menu">
               <li><%= link_to 'Show Profile', teacher_path(current_teacher) %></li>
               <li><%= link_to 'Edit Profile', edit_teacher_path(current_teacher) %><li>
-              <li><%= link_to 'My Classroom', my_classroom_path(current_teacher) %></li>
+              <li><%= link_to 'New Assignment', new_teacher_assignment_path(current_teacher) %></li>
             </ul>
           </li>
 
@@ -60,7 +58,7 @@
             <a tabindex="0" href="#"><i class="fa fa-tasks fa-2x" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
 
-              <li><%= link_to 'My Evaluations', evaluations_path %></li>
+              <li><%= link_to 'Classroom', classroom_path(current_teacher) %></li>
         <!--       <li><a href="#">Evaluations overview</a></li>
               <li><a href="#">To Do Evaluations</a></li> -->
             </ul>
@@ -69,9 +67,9 @@
           <li class="dropdown-submenu">
             <a tabindex="1" href="#"><i class="fa fa-area-chart fa-2x" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Statistics</a></li>
-              <li><a href="#">Overview</i></a></li>
-              <li><a href="#">Feedback</a></li>
+              <li><%= link_to 'Graph Overview', graphs_path(current_teacher) %></li>
+              <!-- <li><a href="#">Overview</i></a></li>
+              <li><a href="#">Feedback</a></li> -->
 
             </ul>
           </li>

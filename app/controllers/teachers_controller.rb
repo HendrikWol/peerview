@@ -5,6 +5,12 @@ class TeachersController < ApplicationController
     @teachers = Teacher.all
   end
 
+  def graphs
+    @teacher = current_teacher
+    show
+    # @classroom = current_student.classroom
+  end
+
   def show
     # The method below is for the first graph
     @teacher_graph_input = []
@@ -50,10 +56,6 @@ class TeachersController < ApplicationController
   @assignment_averages_sorted = assignment_averages.sort do |a, b|
     b[1] <=> a[1]
   end
-
-
-
-
 end
 
 def new
