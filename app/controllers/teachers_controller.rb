@@ -5,8 +5,9 @@ class TeachersController < ApplicationController
     @teachers = Teacher.all
   end
 
-  def graphs_teacher
+  def graphs
     @teacher = current_teacher
+    show
     # @classroom = current_student.classroom
   end
 
