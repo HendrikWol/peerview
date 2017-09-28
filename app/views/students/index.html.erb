@@ -8,7 +8,7 @@
         <%= student.last_name %>
         <%= student.description %>
         <%= student.city %>
-        <%= student.date_of_birth %>
+        <%= student.date_of_birth.strftime("%d/%m/%Y") %>
         <%= student.classroom.name %>
       </ul>
       <% end %>

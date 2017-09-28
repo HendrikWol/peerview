@@ -17,7 +17,7 @@
             <h5 ><%= @student.description %></h5>
             <h5><%= @student.classroom.name %></h5>
             <h5 class="weak"><%= @student.city %></h5>
-            <h5 class="weak"><%= @student.date_of_birth %></h5>
+            <h5 class="weak"><%= @student.date_of_birth.strftime("%d/%m/%Y") %></h5>
             <br>
             <%= link_to 'EDIT PROFILE', edit_student_path, class: 'button-peer-classroom' %>
             <br>
@@ -92,7 +92,7 @@
               <h5 ><%= @student.description %></h5>
               <h5><%= @student.classroom.name %></h5>
               <h5 class="weak"><%= @student.city %></h5>
-              <h5 class="weak"><%= @student.date_of_birth %></h5>
+              <h5 class="weak"><%= @student.date_of_birth.strftime("%d/%m/%Y") %></h5>
             </div>
           </div>
         </div>
