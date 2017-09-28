@@ -22,7 +22,7 @@ footer a {
 }
 
 footer ul:first-of-type {
-  margin-left: 150px;
+  // margin-left: 150px;
 }
 
 li {
@@ -50,15 +50,17 @@ footer strong {
   color: #fff;
   display: block;
   margin-bottom: 12px;
+  margin-top: 15px;
   letter-spacing: 0.5px;
 }
 
 .footer-links {
-  position: absolute;
+  // position: relative;
   right: calc(100vw/ 24 * 6);
   text-align: center;
   display: inline-block;
   vertical-align: top;
+  margin-top: 15px;
 }
 
 a.footer-links {
