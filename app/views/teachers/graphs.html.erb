@@ -7,7 +7,7 @@
               <h3>My students ranking</h3>
               </div>
                 <div class="card-body">
-        <%= bar_chart @students_averages_sorted, xtitle: "Student name", ytitle: "Graph" %>
+        <%= bar_chart @students_averages_sorted, xtitle: "Student name", ytitle: "Graph", colors: ["#52C4CE"] %>
             </div>
           </div>
          </div>
@@ -19,7 +19,7 @@
             <h3>Class Performance by assignment</h3>
             </div>
             <div class="card-body">
-             <%= bar_chart @assignment_averages_sorted, xtitle: "Student name", ytitle: "Graph" %>
+             <%= bar_chart @assignment_averages_sorted, xtitle: "Student name", ytitle: "Graph", colors: ["#52C4CE"] %>
       </div>
       </div>
     </div>
