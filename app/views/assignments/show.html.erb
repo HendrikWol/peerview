@@ -20,7 +20,12 @@
           <!-- <h5><strong>Status: </strong><%= @assignment.status %></h5> -->
           <br>
           <h6><%= link_to 'Upload Your Assignment',  new_assignment_paper_path(@assignment),  class: "button-peer-classroom" %></h6>
+          <br>
+          <br>
 
+          <%= link_to "Back", student_path(current_student), class: 'button-peer-white' %>
+          <br>
+          <br>
 
           </div>
         </div>

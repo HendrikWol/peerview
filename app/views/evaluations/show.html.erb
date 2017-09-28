@@ -13,7 +13,7 @@
         <p><strong>Deadline: </strong><%= @evaluation.paper.assignment.deadline %></p>
         <hr>
 
-        <h4><strong>Given feedback:</strong></h4>
+        <!-- <h4><strong>Given feedback:</strong></h4>
         <p><strong>Readability: </strong><% @evaluation.readability.to_i.times do %>
              <i class="fa fa-star" aria-hidden="true"></i>
             <% end %>
@@ -38,7 +38,7 @@
             <% end %>
             <% (10 - @evaluation.final_grade.to_i).times do %>
              <i class="fa fa-star-o" aria-hidden="true"></i>
-            <% end %></p>
+            <% end %></p> -->
           <br>
             <%= link_to "Back", evaluations_path, class: 'button-peer-white' %>
             <br>
@@ -50,11 +50,14 @@
       <div class="col-xs-12 col-md-6">
         <div class="profile-card ">
           <div class="card-header">
-            <h4><strong>Graph:</strong></h4>
+            <h4><strong>Performance:</strong></h4>
           </div>
           <div class="card-body">
-
+            <%= bar_chart @evaluation_input, xtitle: "Evaluation criteria", ytitle: "Grade", colors: ["#52C4CE"] %>
             <br>
+            <br>
+            <hr>
+            <p><strong>Feedback: </strong><%= @evaluation.feeback_text %></p>
             <br>
           </div>
         </div>

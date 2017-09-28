@@ -13,6 +13,16 @@
   def show
     # evaluator_object = Student.find_by(id: @evaluation.evaluation_processes.evaluator_id)
     # @evaluator_name = evaluator_object.name
+    # The below is related to the first graph
+    # The below is related to the second graph
+        array_final_grade = ['Final Grade', @evaluation.final_grade]
+        array_readability = ['Readbility', @evaluation.readability]
+        array_referencing = ['Referencing', @evaluation.referencing]
+        array_knowledge = ['Knowledge of Topic', @evaluation.knowledge_of_topic]
+        @evaluation_input = [array_final_grade, array_readability, array_referencing, array_knowledge]
+
+
+
   end
 
   def new
