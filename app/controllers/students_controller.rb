@@ -35,12 +35,14 @@ class StudentsController < ApplicationController
 
       student_papers = Paper.where(student_id: current_student.id).where.not(evaluation_id: nil)
       last_paper = student_papers.last
-      last_evaluation = last_paper.evaluation
-      array_final_grade = ['Final Grade', last_evaluation.final_grade]
-      array_readability = ['Readbility', last_evaluation.readability]
-      array_referencing = ['Referencing', last_evaluation.referencing]
-      array_knowledge = ['Knowledge of Topic', last_evaluation.knowledge_of_topic]
-      @paper_chart_input = [array_final_grade, array_readability, array_referencing, array_knowledge]
+      unless last_paper == nil
+        last_evaluation = last_paper.evaluation
+        array_final_grade = ['Final Grade', last_evaluation.final_grade]
+        array_readability = ['Readbility', last_evaluation.readability]
+        array_referencing = ['Referencing', last_evaluation.referencing]
+        array_knowledge = ['Knowledge of Topic', last_evaluation.knowledge_of_topic]
+        @paper_chart_input = [array_final_grade, array_readability, array_referencing, array_knowledge]
+      end
     end
   end
 
