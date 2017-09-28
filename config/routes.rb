@@ -46,5 +46,7 @@ Rails.application.routes.draw do
 
   get 'students/:id/my_classroom', to: 'students#my_classroom', as: 'my_classroom'
 
+  get 'teachers/:teacher_id/graphs_teacher', to: 'teachers#graphs', as: 'graphs'
+
 
 end
