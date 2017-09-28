@@ -36,10 +36,10 @@
         <div class="card-body">
 
           <h3>Student Grades Evolution</h3>
-          <%= line_chart @student_grades_history, xtitle: "Final grade", ytitle: "Date" %>
+          <%= line_chart @student_grades_history, xtitle: "Final grade", ytitle: "Date", colors: ["#52C4CE"] %>
           <hr>
           <h3>Last paper performance details</h3>
-          <%= bar_chart @paper_chart_input, xtitle: "Evaluation criteria", ytitle: "Grade" %>
+          <%= bar_chart @paper_chart_input, xtitle: "Evaluation criteria", ytitle: "Grade", colors: ["#52C4CE"] %>
           <br>
 
 
@@ -118,5 +118,3 @@
 
 
   <% end %>
-
-

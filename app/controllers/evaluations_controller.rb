@@ -24,6 +24,7 @@
     @evaluation.paper = @paper
     if @evaluation.save
       @paper.evaluation = @evaluation
+      @paper.evaluated = true
       @paper.save
       redirect_to evaluations_path
     else

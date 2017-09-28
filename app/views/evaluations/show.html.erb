@@ -13,13 +13,32 @@
         <p><strong>Deadline: </strong><%= @evaluation.paper.assignment.deadline %></p>
         <hr>
 
-          <h4><strong>Given feedback:</strong></h4>
-          <p><strong>Readability: </strong><%= @evaluation.readability %></p>
-          <p><strong>Referencing: </strong><%= @evaluation.referencing %></p>
-          <p><strong>Topic knowledge: </strong><%= @evaluation.knowledge_of_topic %></p>
-          <p><strong>Feedback: </strong><%= @evaluation.feeback_text %></p>
-          <p><strong>Final grade: </strong><%= @evaluation.final_grade %></p>
-          <p><strong>Evaluator: </strong></p>
+        <h4><strong>Given feedback:</strong></h4>
+        <p><strong>Readability: </strong><% @evaluation.readability.to_i.times do %>
+             <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% (10 - @evaluation.readability.to_i).times do %>
+             <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %></p>
+        <p><strong>Referencing: </strong><% @evaluation.referencing.to_i.times do %>
+             <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% (10 - @evaluation.referencing.to_i).times do %>
+             <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %></p>
+        <p><strong>Topic knowledge: </strong><% @evaluation.knowledge_of_topic.to_i.times do %>
+             <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% (10 - @evaluation.knowledge_of_topic.to_i).times do %>
+             <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %></p>
+        <p><strong>Feedback: </strong><%= @evaluation.feeback_text %></p>
+        <p><strong>Final grade: </strong><% @evaluation.final_grade.to_i.times do %>
+             <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% (10 - @evaluation.final_grade.to_i).times do %>
+             <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %></p>
           <br>
             <%= link_to "Back", evaluations_path, class: 'button-peer-white' %>
             <br>
