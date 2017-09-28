@@ -22,7 +22,7 @@ footer a {
 }
 
 footer ul:first-of-type {
-  margin-left: calc(100vw/ 24 * 6);
+  // margin-left: 150px;
 }
 
 li {
@@ -41,7 +41,7 @@ footer ul {
   padding: 0;
   list-style-type: none;
   display: inline-block;
-  width: calc(100vw/ 24 * 3);
+  width: 160px;
   vertical-align: top;
   letter-spacing: 0.5px;
 }
@@ -50,15 +50,17 @@ footer strong {
   color: #fff;
   display: block;
   margin-bottom: 12px;
+  margin-top: 15px;
   letter-spacing: 0.5px;
 }
 
 .footer-links {
-  position: absolute;
+  // position: relative;
   right: calc(100vw/ 24 * 6);
   text-align: center;
   display: inline-block;
   vertical-align: top;
+  margin-top: 15px;
 }
 
 a.footer-links {

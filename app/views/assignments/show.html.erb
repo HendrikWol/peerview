@@ -29,15 +29,16 @@
       <div class="col-xs-12 col-md-6">
         <div class="profile-card">
           <div class="card-header">
-            <h2>Currently submitted paper:</h2>
+            <h2>Currently submitted papers:</h2>
             </div>
             <div class="card-body">
 
 
             <% @assignment.papers.each do |file| %>
-
-            <h5><%= file.student.first_name  %> <%= file.student.last_name  %> | <%= file.title %> | - <%= link_to "SHOW",file.attachment.url, target: '_blank' %> </h5>
-            <% end %>
+              <% if file.student == current_student %>
+              <h5><%= file.student.first_name  %> <%= file.student.last_name  %> | <%= file.title %> | - <%= link_to "SHOW",file.attachment.url, target: '_blank' %> </h5>
+              <% end %>
+             <% end %>
 
           </div>
         </div>
