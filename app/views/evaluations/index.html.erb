@@ -9,6 +9,27 @@
           <div class="card-body">
             <br>
 
+            <% @student_papers.each do |paper|  %>
+            <h4><%= paper.assignment.name %></h4>
+            <p><%= paper.title %></p>
+            <% if !paper.evaluation.nil?  %>
+            <% paper.evaluation.final_grade.to_i.times do %>
+               <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+              <% (10 - paper.evaluation.final_grade.to_i).times do %>
+               <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+
+
+            </p>
+            <br>
+              <p><%= link_to "VIEW EVALUATION", evaluation_path(paper.evaluation), class: 'button-peer-white' %></p>
+              <% else %>
+              <p>Your paper hasn't been graded yet.</p>
+           <% end %>
+            <br>
+            <hr>
+            <% end %>
           </div>
         </div>
       </div>
@@ -22,93 +43,27 @@
           <div class="card-body">
 
           <% @papers_to_evaluate.try(:each) do |paper| %>
-            <% unless paper.evaluation %>
-            <h1>HELLO <%= paper.id %></h1>
+            <% if !paper.evaluation %>
+            <p>You do not have any papers to evaluate</p>
+            <% else %>
+            <h4><%= paper.assignment.name %> </h4>
+            <p> Paper title: <%= paper.title %> </p>
+            <p> Teacher: <%= paper.assignment.topic.teacher.first_name %> <%= paper.assignment.topic.teacher.last_name %></p>
+            <p>Author: ********</p>
+            <br>
              <%= link_to "Download", paper.attachment.url, target: '_blank', class: 'button-peer' %>
              <%= link_to "EVALUATE", new_paper_evaluation_path(paper), class: 'button-peer-white' %>
-            <% end %>
-          <% end %>
-          </div>
-        </div>
-      </div>
-
-
-  </div>
-
-  <br>
-
-</div>
-
-<div class="card-container">
-  <div class="row">
-  <br>
-    <div class="col-xs-12 col-md-6">
-        <div class="profile-card text-center">
-          <div class="card-header">
-            <h4><strong>Finished evaluations:</strong></h4>
-          </div>
-          <div class="card-body">
-
-          <% @evaluations.each do |evaluation| %>
-          <p><%= evaluation.paper.assignment.name %></p>
-          <p><%= evaluation.paper.student.first_name %></p>
-          <br>
-          <p><%= link_to "SHOW", evaluation_path(evaluation), class: 'button-peer-white' %></p>
-          <br>
-          <% end %>
-
-
-          <br>
-          <br>
-
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-xs-12 col-md-6">
-        <div class="profile-card text-center">
-          <div class="card-header">
-            <h4><strong>XXX:</strong></h4>
-          </div>
-          <div class="card-body">
-
-
-
-
             <br>
+            <br>
+            <br>
+            <hr>
+            <% end %>
+             <br>
+        <% end %>
 
           </div>
         </div>
       </div>
-
-  </div>
-
-  <br>
-  <br>
-
-
-
-  <div class="row">
-    <div class="col-xs-12 col-md 12">
-      <div class="profile-card">
-        <div class="card-header">
-          <h4><strong>Graphs: </strong></h4>
-          </div>
-          <div class="card-body">
-          <%= image_tag 'graph.png' %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br>
 
 </div>
-
-
-
-
-
-
+  </div>

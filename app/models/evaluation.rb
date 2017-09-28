@@ -1,6 +1,6 @@
 class Evaluation < ApplicationRecord
   # belongs_to :assignment
-  belongs_to :paper
+  has_one :paper
 
   validates :readability, presence: true
   validates :referencing, presence: true

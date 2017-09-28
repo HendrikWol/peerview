@@ -8,6 +8,7 @@
 
 
 puts "Destroying seeds..."
+Evaluation.destroy_all
 Paper.destroy_all
 Assignment.destroy_all
 Topic.destroy_all
@@ -30,7 +31,7 @@ new_student2 = Student.new(first_name: "Peter", last_name: "Crouch", email: "pet
 new_student2.save!
 new_student3 = Student.new(first_name: "Anna", last_name: "Lea", email: "anna@hotmail.com", password: "anna@hotmail.com", date_of_birth: Date.strptime("01/21/1999", "%m/%d/%Y"), description: "Want to become a football player", city: "Amsterdam", classroom: new_classroom1)
 new_student3.save!
-new_student4 = Student.new(first_name: "Darth", last_name: "Vader", email: "darth@hotmail.com", password: "darth@hotmail.com", date_of_birth: Date.strptime("03/01/1977", "%m/%d/%Y"), description: "Lord sith who wants to conquer the world", city: "Paris", classroom: new_classroom2)
+new_student4 = Student.new(first_name: "Darth", last_name: "Vader", email: "darth@hotmail.com", password: "darth@hotmail.com", date_of_birth: Date.strptime("03/01/1977", "%m/%d/%Y"), description: "Lord sith who wants to conquer the world", city: "Paris", classroom: new_classroom1)
 new_student4.save!
 new_student5 = Student.new(first_name: "Hans", last_name: "Solo", email: "solo@hotmail.com", password: "solo@hotmail.com", date_of_birth: Date.strptime("06/18/1998", "%m/%d/%Y"), description: "Best pilot in the galaxy", city: "London", classroom: new_classroom2)
 new_student5.save!
@@ -61,34 +62,6 @@ new_topic1 = Topic.create!(name: "Entrepreneurship ", program: new_program1, tea
 new_topic2 = Topic.create!(name: "Marketing & Communications", program: new_program2, teacher: new_teacher2)
 new_topic3 = Topic.create!(name: "Finance & Economics", program: new_program3, teacher: new_teacher3)
 
-puts "Creating new assignments..."
-new_assignment1 = Assignment.create!(name: "Assignment 1", deadline: Date.today, description: "Report about entrepreneurship", classroom: new_classroom1, teacher: new_teacher1, topic: new_topic1)
-new_assignment2 = Assignment.create!(name: "Assignment 2", deadline: Date.strptime("09/26/2017", "%m/%d/%Y"), description: "Report about the entrepreneurship of Adam Smith", classroom: new_classroom1, teacher: new_teacher1, topic: new_topic1)
-new_assignment3 = Assignment.create!(name: "Assignment 3", deadline: Date.today, description: "Report about the marketing", classroom: new_classroom2, teacher: new_teacher2, topic: new_topic2)
-new_assignment4 = Assignment.create!(name: "Assignment 4", deadline: Date.strptime("09/26/2017", "%m/%d/%Y"), description: "Report about the marketing of Steve Jobs", classroom: new_classroom2, teacher: new_teacher2, topic: new_topic2)
-new_assignment5 = Assignment.create!(name: "Assignment 5", deadline: Date.today, description: "Report about the finance", classroom: new_classroom3, teacher: new_teacher3, topic: new_topic3)
-new_assignment6 = Assignment.create!(name: "Assignment 6", deadline: Date.strptime("09/26/2017", "%m/%d/%Y"), description: "Report about finance of Bill Gates", classroom: new_classroom3, teacher: new_teacher3, topic: new_topic3)
 
-puts "Creating new papers"
-new_paper1 = Paper.create(title: "Luke report", assignment: new_assignment1, student: new_student1, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506338768/yxvwswgyhdtanml4fckt.docx" )
-new_paper2 = Paper.create(title: "Luke report 2", assignment: new_assignment2, student: new_student1, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506338849/bpeinqi2ggdjtkvgya79.docx" )
-new_paper3 = Paper.create(title: "Peter report", assignment: new_assignment1, student: new_student2, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506416178/Peter_report_ybreuu.docx" )
-new_paper4 = Paper.create(title: "Peter report 2", assignment: new_assignment2, student: new_student2, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506416836/Peter_2_report_iymwpr.docx" )
-new_paper5 = Paper.create(title: "Anna report", assignment: new_assignment1, student: new_student3, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506416924/Anna_report_nlypbz.docx" )
-new_paper6 = Paper.create(title: "Anna report 2", assignment: new_assignment2, student: new_student3, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506416941/Anna_2_report_ngsr3f.docx" )
-
-new_paper7 = Paper.create(title: "Darth report", assignment: new_assignment3, student: new_student4, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417110/Darth_report_kpw9wl.docx" )
-new_paper8 = Paper.create(title: "Darth report 2", assignment: new_assignment4, student: new_student4, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417130/Darth_2_report_qczwh1.docx" )
-new_paper9 = Paper.create(title: "Hans report", assignment: new_assignment3, student: new_student5, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417298/Hans_report_ie3exd.docx" )
-new_paper10 = Paper.create(title: "Hans report 2", assignment: new_assignment4, student: new_student5, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417323/Hans_2_report_e7oyyz.docx" )
-new_paper11 = Paper.create(title: "Lea report", assignment: new_assignment3, student: new_student6, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417175/Lea_report_oiska3.docx" )
-new_paper12 = Paper.create(title: "Lea report 2", assignment: new_assignment4, student: new_student6, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417211/Lea_2_report_rpfwct.docx"  )
-
-new_paper13 = Paper.create(title: "Noel report", assignment: new_assignment5, student: new_student7, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417460/Noel_report_qzqpqv.docx" )
-new_paper14 = Paper.create(title: "Noel report 2", assignment: new_assignment6, student: new_student7, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417465/Noel_2_report_xxzjzo.docx" )
-new_paper15 = Paper.create(title: "Liam report", assignment: new_assignment5, student: new_student8, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417474/Liam_report_zhulfu.docx" )
-new_paper16 = Paper.create(title: "Liam report 2", assignment: new_assignment6, student: new_student8, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417477/Liam_2_report_ilxupw.docx" )
-new_paper17 = Paper.create(title: "Mick report", assignment: new_assignment5, student: new_student9, attachment: "http://res.cloudinary.com/dq8w9lavg/raw/upload/v1506417486/Mick_report_a2bgdj.docx" )
-new_paper18 = Paper.create(title: "Mick report 2", assignment: new_assignment6, student: new_student9, attachment: "https://cloudinary.com/console/media_library#/dialog/raw/upload/Mick_2_report_lshcs5.docx"  )
 puts "Status of creating seeds: complete"
 

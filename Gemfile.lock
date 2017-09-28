@@ -226,7 +226,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_median
+  active_median (~> 0.1.0)
   autoprefixer-rails
   better_errors
   binding_of_caller

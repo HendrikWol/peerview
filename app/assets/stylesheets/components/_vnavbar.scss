@@ -67,6 +67,15 @@
   margin-left: -1px;
   background: #353535;
 }
+
+a[tabindex='0']~.dropdown-menu {
+  top: 55px;
+}
+
+a[tabindex='1']~.dropdown-menu {
+  top: 110px;
+}
+
 .dropdown-submenu:hover >
 .dropdown-menu {
   display: block;
@@ -112,3 +121,11 @@ ul.dropdown-menu.parent {
   color: white;
 }
 
+.fa-star {
+  color: black;
+}
+
+.fa-star-o {
+  color: black;
+
+}

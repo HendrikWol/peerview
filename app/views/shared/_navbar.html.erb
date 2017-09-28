@@ -4,169 +4,159 @@
 <div class="navbar-wagon" style="background-color:white;" >
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    PeerView
+  PeerView
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-<!-- THIS IS FOR WHEN STUDENTS ARE LOGGED IN -->
+    <!-- THIS IS FOR WHEN STUDENTS ARE LOGGED IN -->
 
     <% if student_signed_in? %>
 
-      <!-- Links when logged in -->
-
-
-      <!-- Avatar with dropdown menu -->
+    <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
          <%= image_tag current_student.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to student_path(current_student) do %>
-                <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to root_path do %>
-                <%= t(".profile", default: "Home") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_student_session_path, method: :delete do %>
-                <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to student_path(current_student) do %>
+            <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+            <%= t(".profile", default: "Home") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_student_session_path, method: :delete do %>
+            <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
       </div>
+    </div>
 
-      <!-- THIS IS FOR WHEN TEACHERS ARE LOGGED IN -->
+  <!-- THIS IS FOR WHEN TEACHERS ARE LOGGED IN -->
 
-      <% elsif teacher_signed_in? %>
+    <% elsif teacher_signed_in? %>
 
-      <!-- Links when logged in -->
-
-      <!-- Avatar with dropdown menu -->
+  <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag current_teacher.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to teacher_path(current_teacher) do %>
-                <%= t(".profile", default: "Profile") %>
+              <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
               <%= link_to root_path do %>
-                <%= t(".profile", default: "Home") %>
+              <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_teacher_session_path, method: :delete do %>
-                <%= t(".sign_out", default: "Log out") %>
+              <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
         </div>
       </div>
-    <% else %>
+      <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "HOW TO", how_it_works_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "HOW PV WORKS", how_it_works_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "BLOG", blog_post_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "button-peer" %>
     <% end %>
   </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">How to</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
     </div>
-  </div>
-</div>
 
+<!-- Dropdown list appearing on mobile only -->
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">How PV Works</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
 
-  <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-  $('.child').hide(); //Hide children by default
-$('.parent').children().click(function () {
-  event.preventDefault();
-  $(this).children('.child').slideToggle('slow');
-  $(this).find('span').toggle();
-});
-<% end %>
+    <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+    $('.child').hide(); //Hide children by default
+    $('.parent').children().click(function () {
+    event.preventDefault();
+    $(this).children('.child').slideToggle('slow');
+    $(this).find('span').toggle();
+    });
+  <% end %>
 <% end %>
 
 <% else %>
 <div class="navbar-wagon" style="background-color: #353535;" >
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    PeerView
+  PeerView
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-<!-- THIS IS FOR WHEN STUDENTS ARE LOGGED IN -->
+    <!-- THIS IS FOR WHEN STUDENTS ARE LOGGED IN -->
 
-    <% if student_signed_in? %>
+   <% if student_signed_in? %>
 
-      <!-- Links when logged in -->
+    <!-- Avatar with dropdown menu -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+       <%= image_tag current_student.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
+       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li>
+          <%= link_to student_path(current_student) do %>
+          <%= t(".profile", default: "Profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_path do %>
+          <%= t(".profile", default: "Home") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_student_session_path, method: :delete do %>
+          <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-         <%= image_tag current_student.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+  <!-- THIS IS FOR WHEN TEACHERS ARE LOGGED IN -->
 
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to student_path(current_student) do %>
-                <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to root_path do %>
-                <%= t(".profile", default: "Home") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_student_session_path, method: :delete do %>
-                <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
+  <% elsif teacher_signed_in? %>
 
-      <!-- THIS IS FOR WHEN TEACHERS ARE LOGGED IN -->
-
-      <% elsif teacher_signed_in? %>
-
-      <!-- Links when logged in -->
-
-      <!-- Avatar with dropdown menu -->
+  <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag current_teacher.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to teacher_path(current_teacher) do %>
-                <%= t(".profile", default: "Profile") %>
+              <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
               <%= link_to root_path do %>
-                <%= t(".profile", default: "Home") %>
+              <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_teacher_session_path, method: :delete do %>
-                <%= t(".sign_out", default: "Log out") %>
+              <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -178,33 +168,30 @@ $('.parent').children().click(function () {
       <%= link_to "BLOG", blog_post_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "GET STARTED"), sign_up_path, class: "button-peer" %>
     <% end %>
-
   </div>
 
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">How to</a></li>
+<!-- Dropdown list appearing on mobile only -->
+        <div class="navbar-wagon-item hidden-md hidden-lg">
+          <div class="dropdown">
+            <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li><a href="#">How PV Works</a></li>
+              <li><a href="#">Blog</a></li>
 
-        <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-  <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-  $('.child').hide(); //Hide children by default
-$('.parent').children().click(function () {
-  event.preventDefault();
-  $(this).children('.child').slideToggle('slow');
-  $(this).find('span').toggle();
-});
-<% end %>
-<% end %>
+      <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+      $('.child').hide(); //Hide children by default
+      $('.parent').children().click(function () {
+      event.preventDefault();
+      $(this).children('.child').slideToggle('slow');
+      $(this).find('span').toggle();
+      });
+    <% end %>
+  <% end %>
 <% end %>
 
