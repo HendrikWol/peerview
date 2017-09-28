@@ -1,12 +1,17 @@
 <div class="container">
-<h1>Upload your document here</h1>
-  <div class="row" style="margin-right: 200px;">
-      <%= simple_form_for([@assignment, @paper]) do |f| %>
-      <%= f.input :title %>
-      <%= f.input :attachment %>
-      <%= f.input :attachment_cache, as: :hidden %>
-
-      <%= f.button :submit, class: 'btn btn-success' %>
-      <% end %>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+     <div class="form-login">
+      <h2>Upload your document here</h2>
+        <%= simple_form_for([@assignment, @paper]) do |f| %>
+        <%= f.input :title, class: 'text-center' %>
+        <%= f.input :attachment %>
+        <%= f.input :attachment_cache, as: :hidden %>
+        <br>
+        <br>
+        <%= f.button :submit, class: 'btn btn-blue-1' %>
+        <% end %>
+      </div>
+    </div>
 </div>
 </div>
