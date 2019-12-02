@@ -18,7 +18,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'carrierwave', '~> 0.11.2'
 gem 'cloudinary'
-gem 'chartkick', '~> 1.2.4'
+gem 'chartkick', '~> 3.3.0'
 
 gem 'groupdate',  github: 'ankane/groupdate'
 gem 'active_median', '~> 0.1.0'
